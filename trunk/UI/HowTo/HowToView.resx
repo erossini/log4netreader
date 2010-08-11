@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Add this section to target application in log4net appenders list       
+
+&lt;appender name="RemotingAppender" type="log4net.Appender.RemotingAppender" &gt;
+  &lt;sink value="tcp://10.10.220.232:8085/LoggingSink" /&gt; &lt;!-- The remoting URL to the remoting server object --&gt;
+  &lt;lossy value="false" /&gt;                               &lt;!-- Send all events, do not discard events when the buffer is full --&gt;
+  &lt;bufferSize value="0" /&gt;                              &lt;!-- The number of events to buffer before sending --&gt;
+  &lt;onlyFixPartialEventData value="true" /&gt;              &lt;!-- Do not store event data that is slow to generate --&gt;
+  &lt;layout type="log4net.Layout.XmlLayoutSchemaLog4j"&gt;
+    &lt;locationInfo value="true" /&gt;
+  &lt;/layout&gt;
+&lt;/appender&gt;</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8B////AYmJiQODg4PNfn5+/3l5ef90dHT/cHBw/2tra8v///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wGPj48VkpKS/9XT0//i4N//39zb/+Hf3/9wcHD1////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////AZCQkG+Li4u9xMLB/9TPzv97e3v3eHh4nXl5edN0dHT/cHBw/2tr
+        a/9nZ2f/Y2Nj/2BgYNenp6eNoqKizZycnM2Xl5fNkZGR356env+ampr/goKC+YSEhP+Hh4b/h4aF/6Kg
+        n//Tzs3/087N/+jl5f9kZGT/rq6u/+Ti4v/X1dX/1dPS/9HOzf/KxMP/yMPC/83JyP/Mysr/zMrJ/9jW
+        1v90c3P/ubGu/7evrv/Tzs3/aGho/7S0tP/g3d3/p3JN/6dyTf+nck3/p3JN/6dyTf+nck3/p3JN/6dy
+        Tf/a1dT/eHh4/7qysf+5sa//1M/O/21tbf+6urr/3tvb/7WAWv/OmHD/2K6R/9mvkf/Zr5H/2q+R/9ag
+        d/+nck3/19PR/35+fv+7tLP/u7Ox/9TQz/9zc3P/wMDA/9/c3P+0f1n/y5Vu/82Xb//PmXH/0Zty/9Kc
+        dP/UnnX/p3JN/9fU0/+EhIT/O6FC/zeUN//W0dD/eHh4/8XFxf/h3tz/s31Y/8eRa//Jk23/y5Vu/82X
+        cP/PmXH/0Ztz/6dyTf/Z1dT/i4uL/6DIpP9QqVb/19PR/35+fv/Kysr/4d/e/7F8V//Ejmj/xpBq/8iS
+        a//KlG3/zJZv/86YcP+nck3/29bW/5GRkf/Bu7n/wLm4/9fT0/+EhIT/zs7O/+Lf3/+we1b/sXtW/7F8
+        V/+yfVj/s35Y/7R/Wf+1gFr/p3JN/9zY1/+YmJj/jY2N/4qKiv/Z1dT/i4uL/9PT0//x7+//4t/f/+Lf
+        3//h397/4d7d/+Dd3P/f3Nv/3tvb/97b2f/t7Ov/np6e/8W/vv/Dvbv/2tbV/5GRkf/W1tb509PT/9DQ
+        0P/MzMz/yMjI/8PDw/+/v7//urq6/7W1tf+wsLD/qqqq/6Wlpf+Uk5P/kpGR/9vX1v+YmJj/////Af//
+        /wH///8B////Af///wHPz89Jy8vL5d/f3//q6ur/z8rJ/8vGxf/KxMP/yMPB/8fBwf/c2dj/np6e////
+        /wH///8B////Af///wH///8B////AdDQ0A/MzMyr3Nzc/+bj4//h3tz/39zc/9/c2//e29v/7uzs/6Wl
+        pf////8B////Af///wH///8B////Af///wH///8B////Ac3NzZ/Jycn7xMTE/8DAwP+7u7v/tra2/7Cw
+        sP+rq6unAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
+        //8AAP//AAD//w==
+</value>
+  </data>
+</root>
