@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsr.Workflow.LogReader", "Lsr.Workflow.LogReader.csproj", "{7C5E581E-C322-428E-B080-DFCD58C0D012}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader", "LogReader.csproj", "{7C5E581E-C322-428E-B080-DFCD58C0D012}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
