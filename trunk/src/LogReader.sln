@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader.Wf", "WF\LogReader.Wf.csproj", "{7C5E581E-C322-428E-B080-DFCD58C0D012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader", "WPF\LogReader\LogReader.csproj", "{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C5E581E-C322-428E-B080-DFCD58C0D012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C5E581E-C322-428E-B080-DFCD58C0D012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C5E581E-C322-428E-B080-DFCD58C0D012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C5E581E-C322-428E-B080-DFCD58C0D012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
