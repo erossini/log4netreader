@@ -36,6 +36,7 @@ namespace Inffectus.Features.Main
             textBoxMessage.Text = logentry.Message;
             textBoxThrowable.Text = logentry.Throwable;
             textBoxfile.Text = logentry.File;
-        }
+
+       }
     }
 }
