@@ -8,11 +8,6 @@ namespace Inffectus
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
-            //BootStrapper.Initialize();
-        }
-
         protected override void OnStartup(StartupEventArgs e)
         {
             Presenters.Show("Main");

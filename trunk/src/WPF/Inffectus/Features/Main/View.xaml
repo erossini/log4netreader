@@ -18,6 +18,7 @@
                 <Menu Grid.Column="0">
                     <MenuItem Header="File" >
                         <MenuItem Header="Open" Name="Open" />
+                        <MenuItem Header="Listen" Name="Listen" />
                         <MenuItem Header="Exit" Name="Exit" />
                     </MenuItem>
                     <MenuItem Header="Filter" Command="NavigationCommands.Search"  />
