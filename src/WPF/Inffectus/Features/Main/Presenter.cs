@@ -1,22 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.Remoting;
 using Inffectus.Infrastructure.Readers;
 using Inffectus.Infrastructure.Services;
 using Inffectus.Infrastructure.Ui;
 using Inffectus.Model;
+using log4net;
+using log4net.Config;
+using log4net.Plugin;
 
 namespace Inffectus.Features.Main
 {
     public class Presenter : AbstractPresenter<Model, View>
     {
         readonly LogFileService _logFileService;
-        readonly InstantReader _instantReader;
+        InstantReader _instantReader;
 
         public Presenter()
         {
             _logFileService = new LogFileService();
-            _instantReader = InstantReader.Current;
         }
 
         public void CallExit()
@@ -47,20 +50,12 @@ namespace Inffectus.Features.Main
                 Infos = 0
             };
 
-            //_instantReader.OnLogEntryReceived = entry => Model.Entries.Add(entry);
-            //_instantReader.SetObserver(Model.Entries);
-            _instantReader.Start();
+            _instantReader = new InstantReader(Model.Entries, View.Dispatcher);
 
-            SetObserver o = new SetObserver(Method);
-            View.Dispatcher.Invoke(o);
-        }
+            RemotingConfiguration.Configure(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile, false);
+            LogManager.GetRepository().PluginMap.Add(new RemoteLoggingServerPlugin("LoggingSink"));
 
-        public delegate void SetObserver();
-        
-
-        public void Method()
-        {
-            _instantReader.SetObserver(Model.Entries, View.Dispatcher);
+            BasicConfigurator.Configure(_instantReader);
         }
     }
 }
