@@ -19,7 +19,7 @@ namespace Inffectus.Features.Main.States
 
         public void ShowLogsCommingOverWire()
         {
-            MoveTo(() => State.ListenToWireIncommingEvents(_presenter.View.Dispatcher));
+            MoveTo(() => State.ListenToWireIncommingEvents(_presenter.ViewDispatcher));
         }
 
         private void MoveTo(Func<State> setState)
@@ -31,7 +31,7 @@ namespace Inffectus.Features.Main.States
 
             _state.Enter();
 
-            _presenter.Model  =_state.Model;
+            _presenter.SetViewModel(_state.Model);
         }
     }
 }

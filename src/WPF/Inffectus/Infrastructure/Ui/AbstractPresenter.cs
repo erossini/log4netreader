@@ -1,5 +1,6 @@
 using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Inffectus.Infrastructure.Ui
 {
@@ -14,10 +15,10 @@ namespace Inffectus.Infrastructure.Ui
             View.Closed += (sender, args) => Dispose();
         }
 
-        internal TView View { get; set; }
+        protected TView View { get; set; }
 
 
-        internal TModel Model
+        protected TModel Model
         {
             get { return model; }
             set
@@ -46,6 +47,11 @@ namespace Inffectus.Infrastructure.Ui
 
         public object Result { get; protected set; }
 
+        public Dispatcher ViewDispatcher
+        {
+            get { return View.Dispatcher; }
+        }
+
 
         public void Show()
         {
@@ -60,5 +66,10 @@ namespace Inffectus.Infrastructure.Ui
         public event Action Disposed = delegate { };
 
         #endregion
+
+        public void SetViewModel(TModel themodel)
+        {
+            Model = themodel;
+        }
     }
 }
