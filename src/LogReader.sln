@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader.Wf", "WF\LogReader.Wf.csproj", "{7C5E581E-C322-428E-B080-DFCD58C0D012}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inffectus", "WPF\Inffectus\Inffectus.csproj", "{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}"
