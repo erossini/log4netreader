@@ -14,12 +14,12 @@ namespace Inffectus.Features.Main.States
 
         public void LoadFileLogs()
         {
-            MoveTo(()=> State.MakeFileReader(_presenter));
+            MoveTo(State.LogsLoadedFromFile);
         }
 
         public void ShowLogsCommingOverWire()
         {
-            MoveTo(() => State.MakeWireReader(_presenter));
+            MoveTo(() => State.ListenToWireIncommingEvents(_presenter.View.Dispatcher));
         }
 
         private void MoveTo(Func<State> setState)
@@ -30,6 +30,8 @@ namespace Inffectus.Features.Main.States
             _state = setState();
 
             _state.Enter();
+
+            _presenter.Model  =_state.Model;
         }
     }
 }

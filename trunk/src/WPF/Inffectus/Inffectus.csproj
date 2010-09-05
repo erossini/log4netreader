@@ -94,7 +94,7 @@
     </Compile>
     <Compile Include="Design\Commands\DelegatingCommand.cs" />
     <Compile Include="Features\Main\States\AppStateMachine.cs" />
-    <Compile Include="Features\Main\States\IState.cs" />
+    <Compile Include="Features\Main\States\State.cs" />
     <Compile Include="Features\Main\Model.cs" />
     <Compile Include="Features\Main\Presenter.cs" />
     <Compile Include="Features\Main\States\ReadFromFileState.cs" />

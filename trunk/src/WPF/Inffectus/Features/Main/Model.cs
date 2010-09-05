@@ -5,40 +5,43 @@ namespace Inffectus.Features.Main
 {
     public class Model
     {
+        public Model()
+        {
+            Entries = new ObservableCollection<LogEntry>();
+        }
+
         public ObservableCollection<LogEntry> Entries { get; set; }
 
         public int Errors { get; set; }
         public int Infos { get; set; }
         public int Warns { get; set; }
 
-        public Model()
-        {
-            Entries = new ObservableCollection<LogEntry>();
-        }
-
         public void AddEntry(LogEntry entry)
         {
             switch (entry.Level)
             {
                 case "INFO":
-                    Infos++; break;
+                    Infos++;
+                    break;
                 case "WARN":
-                    Warns++; break;
+                    Warns++;
+                    break;
                 case "ERROR":
-                    Errors++; break;
+                    Errors++;
+                    break;
             }
 
             Entries.Add(entry);
         }
 
-        public static Model BuildFromFile(LogFile logFile)
+        public void BuildFromFile(LogFile logFile)
         {
-            return new Model {
-                           Entries = new ObservableCollection<LogEntry>(logFile.Entries),
-                           Errors = logFile.ErrorCount,
-                           Warns = logFile.WarnCount,
-                           Infos = logFile.InfoCount
-                       };
+            foreach (LogEntry logEntry in logFile.Entries)
+                AddEntry(logEntry);
+
+            Errors = logFile.ErrorCount;
+            Warns = logFile.WarnCount;
+            Infos = logFile.InfoCount;
         }
     }
 }
