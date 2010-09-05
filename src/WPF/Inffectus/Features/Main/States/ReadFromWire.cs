@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Remoting;
+using System.Windows.Threading;
 using Inffectus.Infrastructure.Readers;
 using log4net;
 using log4net.Config;
@@ -9,6 +10,7 @@ namespace Inffectus.Features.Main.States
 {
     public class ReadFromWire : State
     {
+        private readonly Dispatcher _dispatcher;
         private static readonly InstantReader InstantReader;
 
         static ReadFromWire()
@@ -21,16 +23,14 @@ namespace Inffectus.Features.Main.States
             BasicConfigurator.Configure(InstantReader);
         }
 
-        public ReadFromWire(Presenter presenter) : base(presenter)
+        public ReadFromWire(Dispatcher dispatcher)
         {
+            _dispatcher = dispatcher;
         }
 
         public override void Enter()
         {
-            var model = new Model();
-
-            Presenter.SetModel(model);
-            InstantReader.Start(model, Presenter.Dispatcher);
+            InstantReader.Start(Model, _dispatcher);
         }
 
         public override void Leave()

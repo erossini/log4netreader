@@ -6,7 +6,7 @@ namespace Inffectus.Features.Main.States
     {
         private readonly LogFileService _logFileService;
 
-        public ReadFromFileState(Presenter presenter) : base(presenter)
+        public ReadFromFileState()
         {
             _logFileService = new LogFileService();
         }
@@ -14,9 +14,8 @@ namespace Inffectus.Features.Main.States
         public override void Enter()
         {
             var file = _logFileService.PickOne();
-            var model = Model.BuildFromFile(file);
-
-            Presenter.SetModel(model);
+            
+            Model.BuildFromFile(file);
         }
 
         public override void Leave()

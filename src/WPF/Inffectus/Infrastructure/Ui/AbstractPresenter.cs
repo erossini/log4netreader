@@ -14,10 +14,10 @@ namespace Inffectus.Infrastructure.Ui
             View.Closed += (sender, args) => Dispose();
         }
 
-        protected TView View { get; set; }
+        internal TView View { get; set; }
 
 
-        protected TModel Model
+        internal TModel Model
         {
             get { return model; }
             set
