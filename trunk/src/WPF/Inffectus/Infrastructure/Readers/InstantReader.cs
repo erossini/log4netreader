@@ -10,24 +10,33 @@ namespace Inffectus.Infrastructure.Readers
     public class InstantReader : AppenderSkeleton
     {
         private static int _intemid;
-        private readonly ObservableCollection<LogEntry> _entries;
-        private readonly Dispatcher _dispatcher;
+        private Features.Main.Model _model;
+        private Dispatcher _dispatcher;
+        private bool _isRunning;
 
-        private delegate void AppenderDelegate(ObservableCollection<LogEntry> entries, LoggingEvent loggingEvent);
+        private delegate void AppenderDelegate(Features.Main.Model model, LoggingEvent loggingEvent);
 
-        public InstantReader(ObservableCollection<LogEntry> entries, Dispatcher dispatcher)
+        public void Start(Features.Main.Model model, Dispatcher dispatcher)
         {
-            _entries = entries;
+            _model = model;
             _dispatcher = dispatcher;
+            _isRunning = true;
         }
 
+        public void Stop()
+        {
+            _isRunning = false;
+        }
+        
         protected override void Append(LoggingEvent loggingEvent)
         {
-            _dispatcher.Invoke(new AppenderDelegate((entries, @event) =>
+            if(_isRunning == false) return;
+
+            _dispatcher.Invoke(new AppenderDelegate((model, @event) =>
             {
                 var loggingEventDataProperties = loggingEvent.GetLoggingEventData().Properties;
 
-                entries.Add(new LogEntry
+                model.AddEntry(new LogEntry
                 {
                     Item = ++_intemid,
                     TimeStamp = loggingEvent.TimeStamp,
@@ -45,7 +54,7 @@ namespace Inffectus.Infrastructure.Readers
                     Line = loggingEvent.LocationInformation.LineNumber
                 });
                                             
-            }), _entries, loggingEvent);
+            }), _model, loggingEvent);
         }
 
         private static string AddNewLines(string input)

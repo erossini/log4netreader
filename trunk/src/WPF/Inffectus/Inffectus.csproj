@@ -17,6 +17,7 @@
     <TargetFrameworkProfile />
     <TargetFrameworkSubset>
     </TargetFrameworkSubset>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>http://localhost/Inffectus/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -29,7 +30,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -42,6 +42,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -51,6 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
@@ -91,8 +93,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Design\Commands\DelegatingCommand.cs" />
+    <Compile Include="Features\Main\States\AppStateMachine.cs" />
+    <Compile Include="Features\Main\States\IState.cs" />
     <Compile Include="Features\Main\Model.cs" />
     <Compile Include="Features\Main\Presenter.cs" />
+    <Compile Include="Features\Main\States\ReadFromFileState.cs" />
+    <Compile Include="Features\Main\States\ReadFromWire.cs" />
     <Compile Include="Features\Main\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -145,7 +151,7 @@
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
-      <ProductName>.NET Framework Client Profile</ProductName>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

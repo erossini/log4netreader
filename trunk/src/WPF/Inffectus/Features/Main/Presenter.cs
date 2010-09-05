@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Remoting;
+using System.Windows.Threading;
+using Inffectus.Features.Main.States;
 using Inffectus.Infrastructure.Readers;
 using Inffectus.Infrastructure.Services;
 using Inffectus.Infrastructure.Ui;
@@ -17,9 +19,17 @@ namespace Inffectus.Features.Main
         readonly LogFileService _logFileService;
         InstantReader _instantReader;
 
+        readonly AppStateMachine _stateMachine;
+
         public Presenter()
         {
-            _logFileService = new LogFileService();
+
+            _stateMachine = new AppStateMachine(this);
+        }
+
+        public Dispatcher Dispatcher
+        {
+            get { return View.Dispatcher; }
         }
 
         public void CallExit()
@@ -29,33 +39,17 @@ namespace Inffectus.Features.Main
 
         public void CallOpen()
         {
-            var file = _logFileService.PickOne();
-
-            Model = new Model()
-                        {
-                            Entries = new ObservableCollection<LogEntry>(file.Entries),
-                            Errors = file.ErrorCount,
-                            Warns = file.WarnCount,
-                            Infos = file.InfoCount
-                        };
+            _stateMachine.LoadFileLogs();
         }
 
         public void CallListen()
         {
-            Model = new Model()
-            {
-                Entries = new ObservableCollection<LogEntry>(new List<LogEntry>()),
-                Errors = 0,
-                Warns = 0,
-                Infos = 0
-            };
+            _stateMachine.ShowLogsCommingOverWire();
+        }
 
-            _instantReader = new InstantReader(Model.Entries, View.Dispatcher);
-
-            RemotingConfiguration.Configure(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile, false);
-            LogManager.GetRepository().PluginMap.Add(new RemoteLoggingServerPlugin("LoggingSink"));
-
-            BasicConfigurator.Configure(_instantReader);
+        public void SetModel(Model model)
+        {
+            Model = model;
         }
     }
 }
