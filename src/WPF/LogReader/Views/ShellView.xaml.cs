@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace LogReader.Views
@@ -8,6 +9,11 @@ namespace LogReader.Views
         public ShellView()
         {
             InitializeComponent();
+        }
+
+        private void EntrySelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,8 +1,8 @@
-using Caliburn.Core;
+using Caliburn.PresentationFramework.ApplicationModel;
 
 namespace LogReader.ViewModels
 {
-    public class ShellViewModel : PropertyChangedBase
+    public class ShellViewModel : Presenter, IShellViewModel
     {
         private string message;
 
@@ -26,4 +26,6 @@ namespace LogReader.ViewModels
             Message = "Hello World";
         }
     }
+
+    public interface IShellViewModel { }
 }
