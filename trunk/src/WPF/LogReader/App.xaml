@@ -4,6 +4,8 @@
     xmlns:am="clr-namespace:Caliburn.PresentationFramework.ApplicationModel;assembly=Caliburn.PresentationFramework" 
     x:Class="LogReader.App">
 
-	<Application.Resources></Application.Resources>
+	<Application.Resources>
+        
+    </Application.Resources>
 
 </am:CaliburnApplication>

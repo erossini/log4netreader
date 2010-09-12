@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inffectus", "WPF\Inffectus\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Writter", "writter\Writter.csproj", "{F2CB05C8-2652-434A-BBD7-423321FD3403}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader", "WPF\LogReader\LogReader.csproj", "{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{F2CB05C8-2652-434A-BBD7-423321FD3403}.Release|Mixed Platforms.Build.0 = Release|x86
 		{F2CB05C8-2652-434A-BBD7-423321FD3403}.Release|x86.ActiveCfg = Release|x86
 		{F2CB05C8-2652-434A-BBD7-423321FD3403}.Release|x86.Build.0 = Release|x86
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
