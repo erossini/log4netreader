@@ -1,31 +1,49 @@
+using System;
+using System.Collections.ObjectModel;
 using Caliburn.PresentationFramework.ApplicationModel;
+using LogReader.Infrastructure.AppStates;
+using LogReader.Models;
 
 namespace LogReader.ViewModels
 {
     public class ShellViewModel : Presenter, IShellViewModel
     {
-        private string message;
+        private readonly AppStateMachine _appStateMachine;
 
-        public ShellViewModel()
+        public ShellViewModel(AppStateMachine appStateMachine)
         {
-            Message = "My First Message";
+            _appStateMachine = appStateMachine;
+            _appStateMachine.SetModel(this);
         }
 
-        public string Message
+        public void ListenForLogEvents()
         {
-            get { return message; }
+            _appStateMachine.ShowLogsCommingOverWire();
+        }
+
+        public void OpenLogFile()
+        {
+            _appStateMachine.LoadFileLogs();
+        }
+
+        public void LoadState(Model model)
+        {
+            Entries = model.Entries;
+        }
+
+        private ObservableCollection<LogEntry> _entries;
+        public ObservableCollection<LogEntry> Entries
+        {
+            get { return _entries; }
             set
             {
-                message = value;
-                NotifyOfPropertyChange("Message");
+                _entries = value;
+                NotifyOfPropertyChange("Entries");
             }
-        }
-
-        public void ChangeMessage()
-        {
-            Message = "Hello World";
         }
     }
 
-    public interface IShellViewModel { }
+    public interface IShellViewModel {
+        void LoadState(Model model);
+    }
 }

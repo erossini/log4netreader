@@ -2,6 +2,7 @@
 using Caliburn.PresentationFramework.ApplicationModel;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using LogReader.Infrastructure.AppStates;
 using LogReader.ViewModels;
 using Microsoft.Practices.ServiceLocation;
 
@@ -24,7 +25,8 @@ namespace LogReader
             var container = new WindsorContainer();
 
             container
-                .Register(Component.For<IShellViewModel>().ImplementedBy<ShellViewModel>().LifeStyle.Singleton);
+                .Register(Component.For<IShellViewModel>().ImplementedBy<ShellViewModel>().LifeStyle.Singleton)
+                .Register(Component.For<AppStateMachine>());
 
             
             return new WindsorAdapter(container);

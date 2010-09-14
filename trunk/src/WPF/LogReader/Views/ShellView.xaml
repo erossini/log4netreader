@@ -12,10 +12,10 @@
         <DockPanel Grid.Row="0" LastChildFill="False" HorizontalAlignment="Stretch" Width="Auto">
             <ToolBar x:Name="tbToolBar" DockPanel.Dock="Left" Height="27" Width="Auto">
 
-                <Button ToolTip="Open" pf:Message.Attach="ChangeMessage">
+                <Button ToolTip="Open" pf:Message.Attach="OpenLogFile">
                     <Image Source="/Resources/folder.png"/>
                 </Button>
-                <Button ToolTip="Listen" pf:Message.Attach="ChangeMessage">
+                <Button ToolTip="Listen" pf:Message.Attach="ListenForLogEvents">
                     <Image Source="/Resources/control_play_blue.png"/>
                 </Button>
                 <Button ToolTip="How to configure instant appender" pf:Message.Attach="ChangeMessage">
