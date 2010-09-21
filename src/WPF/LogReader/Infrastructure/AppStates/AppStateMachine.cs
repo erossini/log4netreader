@@ -11,6 +11,7 @@ namespace LogReader.Infrastructure.AppStates
         public void SetModel(IShellViewModel model)
         {
             _model = model;
+            MoveTo(State.InNullState);
         }
 
         public void LoadFileLogs()
@@ -21,6 +22,21 @@ namespace LogReader.Infrastructure.AppStates
         public void ShowLogsCommingOverWire()
         {
             MoveTo(State.ListenToWireIncommingEvents);
+        }
+
+        public void PreviousPage()
+        {
+            _state.PreviousPage();
+        }
+
+        public void NextPage()
+        {
+            _state.NextPage();
+        }
+
+        public void GoToPage(string index)
+        {
+            _state.GoToPage(index);
         }
 
         private void MoveTo(Func<State> setState)

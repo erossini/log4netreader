@@ -25,6 +25,21 @@ namespace LogReader.ViewModels
             _appStateMachine.LoadFileLogs();
         }
 
+        public void PreviousPage()
+        {
+            _appStateMachine.PreviousPage();
+        }
+        
+        public void NextPage()
+        {
+            _appStateMachine.NextPage();
+        }
+        
+        public void GoToPage(string index)
+        {
+            _appStateMachine.GoToPage(index);
+        }
+
         public void LoadState(Model model)
         {
             Entries = model.Entries;

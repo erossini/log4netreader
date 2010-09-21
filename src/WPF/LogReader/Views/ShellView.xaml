@@ -17,14 +17,14 @@
                 <Button ToolTip="Listen" pf:Message.Attach="ListenForLogEvents">
                     <Image Source="/Resources/control_play_blue.png"/>
                 </Button>
-                <Button ToolTip="Previos" pf:Message.Attach="ListenForLogEvents">
+                <Button ToolTip="Previos" pf:Message.Attach="PreviousPage">
                     <Image Source="/Resources/control_rewind_blue.png"/>
                 </Button>
-                <Button ToolTip="Next" pf:Message.Attach="ListenForLogEvents">
+                <Button ToolTip="Next" pf:Message.Attach="NextPage">
                     <Image Source="/Resources/control_fastforward_blue.png"/>
                 </Button>
-                <Button>Go to</Button>
-                <TextBox Width="50"></TextBox>
+                <Button pf:Message.Attach="GoToPage(pageIndex.Text)">Go to</Button>
+                <TextBox Width="50" x:Name="pageIndex"></TextBox>
                 <Button ToolTip="How to configure instant appender" pf:Message.Attach="ChangeMessage">
                     <Image Source="/Resources/script_code.png"/>
                 </Button>

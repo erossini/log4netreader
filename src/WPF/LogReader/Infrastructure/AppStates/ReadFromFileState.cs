@@ -1,4 +1,5 @@
-﻿using LogReader.Models;
+﻿using System;
+using LogReader.Models;
 
 namespace LogReader.Infrastructure.AppStates
 {
@@ -20,6 +21,21 @@ namespace LogReader.Infrastructure.AppStates
 
         public override void Leave()
         {
+        }
+
+        public override void PreviousPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void NextPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GoToPage(string index)
+        {
+            throw new NotImplementedException();
         }
     }
 }
