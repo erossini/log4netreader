@@ -37,5 +37,20 @@ namespace LogReader.Infrastructure.AppStates
         {
             InstantReader.Stop();
         }
+
+        public override void PreviousPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void NextPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GoToPage(string index)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
