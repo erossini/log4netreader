@@ -15,9 +15,9 @@ namespace LogReader.Infrastructure.AppStates
             return new ReadFromFileState();
         }
 
-        public static State ListenToWireIncommingEvents(Dispatcher dispatcher)
+        public static State ListenToWireIncommingEvents()
         {
-            return new ReadFromWire(dispatcher);
+            return new ReadFromWire(Dispatcher.CurrentDispatcher);
         }
     }
 }

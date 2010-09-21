@@ -1,5 +1,4 @@
 using System;
-using System.Windows.Threading;
 using LogReader.ViewModels;
 
 namespace LogReader.Infrastructure.AppStates
@@ -21,7 +20,7 @@ namespace LogReader.Infrastructure.AppStates
 
         public void ShowLogsCommingOverWire()
         {
-            MoveTo(() => State.ListenToWireIncommingEvents(Dispatcher.CurrentDispatcher));
+            MoveTo(State.ListenToWireIncommingEvents);
         }
 
         private void MoveTo(Func<State> setState)
