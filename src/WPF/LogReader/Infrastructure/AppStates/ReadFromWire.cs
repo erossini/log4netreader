@@ -10,7 +10,6 @@ namespace LogReader.Infrastructure.AppStates
 {
     public class ReadFromWire : State
     {
-        private readonly Dispatcher _dispatcher;
         private static readonly InstantReader InstantReader;
 
         static ReadFromWire()
@@ -23,14 +22,13 @@ namespace LogReader.Infrastructure.AppStates
             BasicConfigurator.Configure(InstantReader);
         }
 
-        public ReadFromWire(Dispatcher dispatcher)
+        public ReadFromWire()
         {
-            _dispatcher = dispatcher;
         }
 
         public override void Enter()
         {
-            InstantReader.Start(Model, _dispatcher);
+            InstantReader.Start(Model);
         }
 
         public override void Leave()
