@@ -1,4 +1,3 @@
-using System.Windows.Threading;
 using LogReader.Models;
 
 namespace LogReader.Infrastructure.AppStates
@@ -19,7 +18,7 @@ namespace LogReader.Infrastructure.AppStates
 
         public static State ListenToWireIncommingEvents()
         {
-            return new ReadFromWire(Dispatcher.CurrentDispatcher);
+            return new ReadFromWire();
         }
 
         public static State InNullState()

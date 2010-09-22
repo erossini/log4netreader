@@ -10,15 +10,14 @@ namespace LogReader.Infrastructure.Readers
     {
         private static int _intemid;
         private Model _model;
-        private Dispatcher _dispatcher;
+        private readonly Dispatcher _dispatcher = Dispatcher.CurrentDispatcher;
         private bool _isRunning;
 
         private delegate void AppenderDelegate(Model model, LoggingEvent loggingEvent);
 
-        public void Start(Model model, Dispatcher dispatcher)
+        public void Start(Model model)
         {
             _model = model;
-            _dispatcher = dispatcher;
             _isRunning = true;
         }
 
