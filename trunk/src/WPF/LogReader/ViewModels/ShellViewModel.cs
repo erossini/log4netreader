@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using Caliburn.PresentationFramework.ApplicationModel;
 using LogReader.Models;
+using LogReader.Models.States.Paginators;
 
 namespace LogReader.ViewModels
 {
@@ -50,6 +51,17 @@ namespace LogReader.ViewModels
             {
                 _entries = value;
                 NotifyOfPropertyChange("Entries");
+            }
+        }
+
+        private PageInfo _info;
+        public PageInfo Info
+        {
+            get { return _info; }
+            set
+            {
+                _info = value;
+                NotifyOfPropertyChange("Info");
             }
         }
     }
