@@ -1,4 +1,5 @@
 ﻿using System;
+using LogReader.Infrastructure.Readers;
 using LogReader.Models;
 
 namespace LogReader.Infrastructure.AppStates
@@ -14,7 +15,7 @@ namespace LogReader.Infrastructure.AppStates
 
         public override void Enter()
         {
-            var file = _logFileService.PickOne();
+            var file = _logFileService.GetFileEntries();
             
             Model.BuildFromFile(file);
         }
