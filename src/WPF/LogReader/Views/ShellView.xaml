@@ -196,6 +196,13 @@
                 <TextBlock Text="{Binding Path=Info.PageIndex}" />
             </StatusBarItem>
 
+            <StatusBarItem>
+                <Label Content="Mode" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding Path=Info.Mode}" />
+            </StatusBarItem>
+
         </StatusBar>
 
     </Grid>  

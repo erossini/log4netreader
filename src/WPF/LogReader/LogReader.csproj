@@ -127,7 +127,7 @@
     <Compile Include="Models\States\ListeningState.cs" />
     <Compile Include="Models\States\NeutralState.cs" />
     <Compile Include="Models\States\Paginators\FilePaginator.cs" />
-    <Compile Include="Models\States\Paginators\IPaginator.cs" />
+    <Compile Include="Models\States\Paginators\Paginator.cs" />
     <Compile Include="Models\States\Paginators\NullPaginator.cs" />
     <Compile Include="Models\States\Paginators\StreamPaginator.cs" />
     <Compile Include="Models\States\Paginators\WaitPaginator.cs" />
