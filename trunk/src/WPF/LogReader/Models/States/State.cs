@@ -4,7 +4,7 @@ namespace LogReader.Models.States
 {
     public abstract class State
     {
-        protected IPaginator Paginator = new NullPaginator();
+        protected Paginator Paginator;
         protected StateMachine StateMachine { get; private set; }
 
         public IViewModel ViewModel;

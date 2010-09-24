@@ -1,27 +1,19 @@
-using System;
-
 namespace LogReader.Models.States.Paginators
 {
-    public class WaitPaginator : IPaginator
+    public class WaitPaginator : Paginator
     {
-        public void PreviousPage()
+        public WaitPaginator(IViewModel viewModel, Acumulator acumulator) : base(viewModel, acumulator)
         {
-            throw new NotImplementedException();
         }
 
-        public void NextPage()
+        protected override string ContentMode()
         {
-            throw new NotImplementedException();
+            return "wait ...";
         }
 
-        public void GoToPage(int index)
+        public override void Notify(object o)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Bind()
-        {
-            throw new NotImplementedException();
+            Bind();
         }
     }
 }

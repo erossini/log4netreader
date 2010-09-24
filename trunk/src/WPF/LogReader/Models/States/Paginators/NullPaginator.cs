@@ -1,21 +1,16 @@
+using System;
+
 namespace LogReader.Models.States.Paginators
 {
-    public class NullPaginator : IPaginator
+    public class NullPaginator : Paginator
     {
-        public void PreviousPage()
+        public NullPaginator(IViewModel viewModel, Acumulator acumulator) : base(viewModel, acumulator)
         {
         }
 
-        public void NextPage()
+        protected override string ContentMode()
         {
-        }
-
-        public void GoToPage(int index)
-        {
-        }
-
-        public void Bind()
-        {
+            return "";
         }
     }
 }

@@ -27,5 +27,16 @@ namespace LogReader.Models.States.Paginators
                 NotifyOfPropertyChange("PageIndex");
             }
         }
+
+        private string _mode;
+        public string Mode
+        {
+            get { return _mode; }
+            set
+            {
+                _mode = value;
+                NotifyOfPropertyChange("Mode");
+            }
+        }
     }
 }

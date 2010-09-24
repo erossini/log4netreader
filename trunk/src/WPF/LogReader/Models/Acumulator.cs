@@ -34,14 +34,26 @@ namespace LogReader.Models
                 CurrentPage = index;
         }
 
+        public bool IsNextPageLast()
+        {
+            return CurrentPage + 1 == Pages;
+        }
+
+        public bool IsCurrentlyOnLastPage()
+        {
+            return CurrentPage == Pages;
+        }
+
         public void NextPage()
         {
-            CurrentPage++;
+            if (CurrentPage < Pages)
+                CurrentPage++;
         }
 
         public void PreviosPage()
         {
-            CurrentPage--;
+            if (CurrentPage > 1)
+                CurrentPage--;
         }
 
         public void AppendEntry(LogEntry entry)

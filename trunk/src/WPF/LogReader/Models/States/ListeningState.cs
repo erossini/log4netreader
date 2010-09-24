@@ -38,5 +38,29 @@ namespace LogReader.Models.States
         {
             InstantReader.Stop();
         }
+
+        public override void NextPage()
+        {
+            if (Acumulator.IsNextPageLast())
+            {
+                Paginator.Release();
+                Paginator = new StreamPaginator(ViewModel, Acumulator);
+                Paginator.Bind();
+            }
+
+            base.NextPage();
+        }
+
+        public override void PreviousPage()
+        {
+            if (Acumulator.IsCurrentlyOnLastPage())
+            {
+                Paginator.Release();
+                Paginator = new WaitPaginator(ViewModel, Acumulator);
+                Paginator.Bind();
+            }
+            
+            base.PreviousPage();
+        }
     }
 }
