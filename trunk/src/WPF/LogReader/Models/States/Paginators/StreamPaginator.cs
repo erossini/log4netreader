@@ -1,27 +1,43 @@
 using System;
+using System.Collections.ObjectModel;
+using LogReader.Models.Observers;
 
 namespace LogReader.Models.States.Paginators
 {
-    public class StreamPaginator : IPaginator
+    public class StreamPaginator : IPaginator, IObserver
     {
+        private readonly IViewModel _viewModel;
+        private readonly Acumulator _acumulator;
+
+        public StreamPaginator(IViewModel viewModel, Acumulator acumulator)
+        {
+            _viewModel = viewModel;
+            _acumulator = acumulator;
+
+            _acumulator.Subscribe(this);
+        }
+
         public void PreviousPage()
         {
-            throw new NotImplementedException();
         }
 
         public void NextPage()
         {
-            throw new NotImplementedException();
         }
 
         public void GoToPage(int index)
         {
-            throw new NotImplementedException();
         }
 
         public void Bind()
         {
-            throw new NotImplementedException();
+            _viewModel.Entries = new ObservableCollection<LogEntry>();
+        }
+
+        public void Notify(object o)
+        {
+            //_viewModel.Entries.RemoveAt(0);
+            _viewModel.Entries.Add((LogEntry)o);
         }
     }
 }
