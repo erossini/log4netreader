@@ -4,6 +4,7 @@ namespace LogReader.Models.States.Paginators
     {
         void PreviousPage();
         void NextPage();
-        void GoToPage(string index);
+        void GoToPage(int index);
+        void Bind();
     }
 }

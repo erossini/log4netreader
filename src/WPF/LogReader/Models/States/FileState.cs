@@ -7,7 +7,7 @@ namespace LogReader.Models.States
     {
         public FileState(StateMachine stateMachine):base(stateMachine)
         {
-            Paginator = new FilePaginator();
+            Paginator = new FilePaginator(ViewModel, Acumulator);
         }
 
         public override void Enter()
@@ -15,8 +15,9 @@ namespace LogReader.Models.States
             var logFileService = new LogFileService();
             var entries = logFileService.GetFileEntries();
 
-            StateMachine
-                .Acumulator.LoadEntries(entries));
+            Acumulator.LoadEntries(entries);
+
+            Paginator.Bind();
         }
 
         public override void Leave()

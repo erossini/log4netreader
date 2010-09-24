@@ -6,7 +6,10 @@ namespace LogReader.Models.States
     {
         protected IPaginator Paginator = new NullPaginator();
         protected StateMachine StateMachine { get; private set; }
-        
+
+        public IViewModel ViewModel;
+        public Acumulator Acumulator;
+
         public abstract void Enter();
         public virtual void Leave()
         {
@@ -16,6 +19,12 @@ namespace LogReader.Models.States
         protected State(StateMachine stateMachine)
         {
             StateMachine = stateMachine;
+
+            if(stateMachine == null)
+                return;
+
+            ViewModel = stateMachine.ViewModel;
+            Acumulator = stateMachine.Acumulator;
         }
 
         public virtual void PreviousPage()
@@ -28,7 +37,7 @@ namespace LogReader.Models.States
             Paginator.NextPage();
         }
 
-        public virtual void GoToPage(string index)
+        public virtual void GoToPage(int index)
         {
             Paginator.GoToPage(index);
         }

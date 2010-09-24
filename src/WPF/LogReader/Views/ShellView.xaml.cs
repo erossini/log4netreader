@@ -28,7 +28,6 @@ namespace LogReader.Views
             textBoxClass.Text = logentry.Class;
             textBoxMethod.Text = logentry.Method;
             textBoxLine.Text = logentry.Line;
-            textBoxLog.Text = logentry.LogFile;
             textBoxMessage.Text = logentry.Message;
             textBoxThrowable.Text = logentry.Throwable;
             textBoxfile.Text = logentry.File;

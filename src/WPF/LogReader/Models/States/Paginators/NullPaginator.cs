@@ -6,17 +6,18 @@ namespace LogReader.Models.States.Paginators
     {
         public void PreviousPage()
         {
-            throw new NotImplementedException();
         }
 
         public void NextPage()
         {
-            throw new NotImplementedException();
         }
 
-        public void GoToPage(string index)
+        public void GoToPage(int index)
         {
-            throw new NotImplementedException();
+        }
+
+        public void Bind()
+        {
         }
     }
 }

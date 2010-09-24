@@ -6,11 +6,11 @@ namespace LogReader.Models
     {
         private State _state = new NeutralState();
         public readonly Acumulator Acumulator = new Acumulator();
-        private IViewModel _viewModel;
+        public IViewModel ViewModel;
 
         public void SetViewModel(IViewModel viewModel)
         {
-            _viewModel = viewModel;
+            ViewModel = viewModel;
         }
 
         public void LoadFileLogs()
@@ -40,7 +40,7 @@ namespace LogReader.Models
         {
             _state.NextPage();
         }
-        public void GoToPage(string index)
+        public void GoToPage(int index)
         {
             _state.GoToPage(index);
         }

@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Caliburn.PresentationFramework.ApplicationModel;
 using LogReader.Models;
 
@@ -35,7 +36,21 @@ namespace LogReader.ViewModels
         
         public void GoToPage(string index)
         {
-            _appStateMachine.GoToPage(index);
+            var pageIndex = 1;
+
+            if(int.TryParse(index, out pageIndex))
+                _appStateMachine.GoToPage(pageIndex);
+        }
+
+        private ObservableCollection<LogEntry> _entries;
+        public ObservableCollection<LogEntry> Entries
+        {
+            get { return _entries; }
+            set
+            {
+                _entries = value;
+                NotifyOfPropertyChange("Entries");
+            }
         }
     }
 }
