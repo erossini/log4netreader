@@ -9,15 +9,16 @@ namespace LogReader.Infrastructure.Readers
     public class InstantReader : AppenderSkeleton
     {
         private static int _intemid;
-        private Model _model;
-        private readonly Dispatcher _dispatcher = Dispatcher.CurrentDispatcher;
+        private Acumulator _acumulator;
+        private Dispatcher _dispatcher;
         private bool _isRunning;
 
-        private delegate void AppenderDelegate(Model model, LoggingEvent loggingEvent);
+        private delegate void AppenderDelegate(Acumulator model, LoggingEvent loggingEvent);
 
-        public void Start(Model model)
+        public void Start(Acumulator acumulator, Dispatcher currentDispatcher)
         {
-            _model = model;
+            _acumulator = acumulator;
+            _dispatcher = currentDispatcher;
             _isRunning = true;
         }
 
@@ -25,16 +26,16 @@ namespace LogReader.Infrastructure.Readers
         {
             _isRunning = false;
         }
-        
+
         protected override void Append(LoggingEvent loggingEvent)
         {
             if(_isRunning == false) return;
 
-            _dispatcher.Invoke(new AppenderDelegate((model, @event) =>
+            _dispatcher.Invoke(new AppenderDelegate((acumulator, @event) =>
             {
                 var loggingEventDataProperties = loggingEvent.GetLoggingEventData().Properties;
 
-                model.AddEntry(new LogEntry
+                acumulator.AppendEntry(new LogEntry
                 {
                     Item = ++_intemid,
                     TimeStamp = loggingEvent.TimeStamp,
@@ -52,7 +53,7 @@ namespace LogReader.Infrastructure.Readers
                     Line = loggingEvent.LocationInformation.LineNumber
                 });
                                             
-            }), _model, loggingEvent);
+            }), _acumulator, loggingEvent);
         }
 
         private static string AddNewLines(string input)

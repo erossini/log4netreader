@@ -8,7 +8,7 @@ namespace LogReader.Infrastructure.Readers
 {
     public class LogReader
     {
-        public LogFile GetEntries(string logFileName)
+        public List<LogEntry> GetEntries(string logFileName)
         {
             var entries = new List<LogEntry>();
             string fileContent;
@@ -36,46 +36,8 @@ namespace LogReader.Infrastructure.Readers
                 var dSeconds = Convert.ToDouble(oXmlTextReader.GetAttribute("timestamp"));
                 logentry.TimeStamp = dt.AddMilliseconds(dSeconds).ToLocalTime();
                 logentry.Thread = oXmlTextReader.GetAttribute("thread");
-                logentry.LogFile = logFileName;
 
-                #region get level
-                ////////////////////////////////////////////////////////////////////////////////
                 logentry.Level = oXmlTextReader.GetAttribute("level");
-                switch (logentry.Level)
-                {
-                    case "ERROR":
-                        {
-                            logentry.Image = LogEntry.Images(LogImageType.Error);
-                            break;
-                        }
-                    case "INFO":
-                        {
-                            logentry.Image = LogEntry.Images(LogImageType.Info);
-                            break;
-                        }
-                    case "DEBUG":
-                        {
-                            logentry.Image = LogEntry.Images(LogImageType.Debug);
-                            break;
-                        }
-                    case "WARN":
-                        {
-                            logentry.Image = LogEntry.Images(LogImageType.Warn);
-                            break;
-                        }
-                    case "FATAL":
-                        {
-                            logentry.Image = LogEntry.Images(LogImageType.Fatal);
-                            break;
-                        }
-                    default:
-                        {
-                            logentry.Image = LogEntry.Images(LogImageType.Custom);
-                            break;
-                        }
-                }
-                ////////////////////////////////////////////////////////////////////////////////
-                #endregion
 
                 #region read xml
                 ////////////////////////////////////////////////////////////////////////////////
@@ -101,23 +63,19 @@ namespace LogReader.Infrastructure.Readers
                                         {
                                             case ("log4jmachinename"):
                                                 {
-                                                    logentry.MachineName = oXmlTextReader.GetAttribute("value");
-                                                    break;
+                                                    logentry.MachineName = oXmlTextReader.GetAttribute("value");break;
                                                 }
                                             case ("log4net:HostName"):
                                                 {
-                                                    logentry.HostName = oXmlTextReader.GetAttribute("value");
-                                                    break;
+                                                    logentry.HostName = oXmlTextReader.GetAttribute("value");break;
                                                 }
                                             case ("log4net:UserName"):
                                                 {
-                                                    logentry.UserName = oXmlTextReader.GetAttribute("value");
-                                                    break;
+                                                    logentry.UserName = oXmlTextReader.GetAttribute("value");break;
                                                 }
                                             case ("log4japp"):
                                                 {
-                                                    logentry.App = oXmlTextReader.GetAttribute("value");
-                                                    break;
+                                                    logentry.App = oXmlTextReader.GetAttribute("value");break;
                                                 }
                                         }
                                         break;
@@ -147,7 +105,7 @@ namespace LogReader.Infrastructure.Readers
                 iIndex++;
             }
 
-            return LogFile.BuildFromEntries(entries);
+            return entries;
         }
     }
 }
