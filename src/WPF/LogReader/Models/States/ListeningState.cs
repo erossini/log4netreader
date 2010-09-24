@@ -25,7 +25,8 @@ namespace LogReader.Models.States
 
         public ListeningState(StateMachine stateMachine):base(stateMachine)
         {
-            Paginator = new StreamPaginator();
+            Paginator = new StreamPaginator(ViewModel, Acumulator);
+            Paginator.Bind();
         }
 
         public override void Enter()

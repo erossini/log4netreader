@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using LogReader.Models.Observers;
 
 namespace LogReader.Models
 {
-    public class Acumulator
+    public class Acumulator : Subject
     {
         private readonly List<LogEntry> _entries;
         public int CurrentPage = 1;
@@ -61,6 +62,8 @@ namespace LogReader.Models
             _entries.Add(entry);
 
             Pages = _entries.Count/PageSize + (_entries.Count%PageSize == 0 ? 0 : 1);
+
+            NotifyObservers(entry);
         }
 
         public void LoadEntries(List<LogEntry> entries)
