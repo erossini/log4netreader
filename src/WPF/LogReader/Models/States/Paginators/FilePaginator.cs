@@ -34,6 +34,11 @@ namespace LogReader.Models.States.Paginators
         public void Bind()
         {
             _viewModel.Entries = new ObservableCollection<LogEntry>(_acumulator.GetActivePage());
+            _viewModel.Info = new PageInfo()
+            {
+                Pages = _acumulator.Pages,
+                PageIndex = _acumulator.CurrentPage
+            };
         }
     }
 }

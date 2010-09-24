@@ -36,10 +36,6 @@
 
         <DockPanel Grid.Row="1">
 
-            <StatusBar Height="23" DockPanel.Dock="Bottom" Foreground="#FFE9EEF0" >
-                <StatusBarItem Content="Ready"/>
-            </StatusBar>
-
             <Grid x:Name="MainGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="302"/>
@@ -185,7 +181,21 @@
         </DockPanel>
 
         <StatusBar Grid.Row="2">
-            <StatusBarItem Content="This is the StatusBar"/>
+
+            <StatusBarItem DockPanel.Dock="Right">
+                <Label Content="Pages" />
+            </StatusBarItem>
+            <StatusBarItem DockPanel.Dock="Right">
+                <TextBlock Text="{Binding Path=Info.Pages}" />
+            </StatusBarItem>
+
+            <StatusBarItem DockPanel.Dock="Left">
+                <Label Content="Page" />
+            </StatusBarItem>
+            <StatusBarItem DockPanel.Dock="Left">
+                <TextBlock Text="{Binding Path=Info.PageIndex}" />
+            </StatusBarItem>
+
         </StatusBar>
 
     </Grid>  

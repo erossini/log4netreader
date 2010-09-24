@@ -1,4 +1,3 @@
-using System;
 using System.Collections.ObjectModel;
 using LogReader.Models.Observers;
 
@@ -36,8 +35,11 @@ namespace LogReader.Models.States.Paginators
 
         public void Notify(object o)
         {
-            //_viewModel.Entries.RemoveAt(0);
+            if (_acumulator.PageSize - 1 < _viewModel.Entries.Count)
+                _viewModel.Entries.RemoveAt(0);
+            
             _viewModel.Entries.Add((LogEntry)o);
+            _viewModel.Info = new PageInfo() { Pages = _acumulator.Pages };
         }
     }
 }

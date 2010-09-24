@@ -1,5 +1,3 @@
-using System;
-
 namespace LogReader.Models.States.Paginators
 {
     public class NullPaginator : IPaginator
