@@ -182,17 +182,17 @@
 
         <StatusBar Grid.Row="2">
 
-            <StatusBarItem DockPanel.Dock="Right">
+            <StatusBarItem>
                 <Label Content="Pages" />
             </StatusBarItem>
-            <StatusBarItem DockPanel.Dock="Right">
+            <StatusBarItem>
                 <TextBlock Text="{Binding Path=Info.Pages}" />
             </StatusBarItem>
 
-            <StatusBarItem DockPanel.Dock="Left">
+            <StatusBarItem>
                 <Label Content="Page" />
             </StatusBarItem>
-            <StatusBarItem DockPanel.Dock="Left">
+            <StatusBarItem>
                 <TextBlock Text="{Binding Path=Info.PageIndex}" />
             </StatusBarItem>
 
