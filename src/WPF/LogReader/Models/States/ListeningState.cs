@@ -5,12 +5,12 @@ using log4net;
 using log4net.Config;
 using log4net.Plugin;
 using LogReader.Infrastructure.Readers;
+using LogReader.Models.States.Paginators;
 
 namespace LogReader.Models.States
 {
     public class ListeningState : State
     {
-        private readonly Acumulator _acumulator;
         private static readonly InstantReader InstantReader;
 
         static ListeningState()
@@ -23,14 +23,14 @@ namespace LogReader.Models.States
             BasicConfigurator.Configure(InstantReader);
         }
 
-        public ListeningState(Acumulator acumulator)
+        public ListeningState(StateMachine stateMachine):base(stateMachine)
         {
-            _acumulator = acumulator;
+            Paginator = new StreamPaginator();
         }
 
         public override void Enter()
         {
-            InstantReader.Start(_acumulator, Dispatcher.CurrentDispatcher);
+            InstantReader.Start(StateMachine.Acumulator, Dispatcher.CurrentDispatcher);
         }
 
         public override void Leave()

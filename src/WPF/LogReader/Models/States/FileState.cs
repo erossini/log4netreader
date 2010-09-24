@@ -1,14 +1,13 @@
 using LogReader.Infrastructure.Readers;
+using LogReader.Models.States.Paginators;
 
 namespace LogReader.Models.States
 {
     public class FileState : State
     {
-        private readonly Acumulator _acumulator;
-
-        public FileState(Acumulator acumulator)
+        public FileState(StateMachine stateMachine):base(stateMachine)
         {
-            _acumulator = acumulator;
+            Paginator = new FilePaginator();
         }
 
         public override void Enter()
@@ -16,7 +15,8 @@ namespace LogReader.Models.States
             var logFileService = new LogFileService();
             var entries = logFileService.GetFileEntries();
 
-            _acumulator.LoadEntries(entries);
+            StateMachine
+                .Acumulator.LoadEntries(entries));
         }
 
         public override void Leave()

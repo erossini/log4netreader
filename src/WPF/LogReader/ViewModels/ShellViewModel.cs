@@ -1,18 +1,16 @@
-using System.Collections.ObjectModel;
 using Caliburn.PresentationFramework.ApplicationModel;
-using LogReader.Infrastructure.AppStates;
 using LogReader.Models;
 
 namespace LogReader.ViewModels
 {
-    public class ShellViewModel : Presenter, IShellViewModel
+    public class ShellViewModel : Presenter, IViewModel
     {
-        private readonly AppStateMachine _appStateMachine;
+        private readonly StateMachine _appStateMachine;
 
-        public ShellViewModel(AppStateMachine appStateMachine)
+        public ShellViewModel(StateMachine appStateMachine)
         {
             _appStateMachine = appStateMachine;
-            _appStateMachine.SetModel(this);
+            _appStateMachine.SetViewModel(this);
         }
 
         public void ListenForLogEvents()
@@ -39,25 +37,5 @@ namespace LogReader.ViewModels
         {
             _appStateMachine.GoToPage(index);
         }
-
-        public void LoadState(Model model)
-        {
-            Entries = model.Entries;
-        }
-
-        private ObservableCollection<LogEntry> _entries;
-        public ObservableCollection<LogEntry> Entries
-        {
-            get { return _entries; }
-            set
-            {
-                _entries = value;
-                NotifyOfPropertyChange("Entries");
-            }
-        }
-    }
-
-    public interface IShellViewModel {
-        void LoadState(Model model);
     }
 }

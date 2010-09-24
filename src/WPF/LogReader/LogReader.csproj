@@ -116,10 +116,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\AppStates\AppStateMachine.cs" />
-    <Compile Include="Infrastructure\AppStates\ReadFromFileState.cs" />
-    <Compile Include="Infrastructure\AppStates\ReadFromWire.cs" />
-    <Compile Include="Infrastructure\AppStates\State.cs" />
     <Compile Include="Infrastructure\Bootrapper.cs" />
     <Compile Include="Infrastructure\Readers\InstantReader.cs" />
     <Compile Include="Infrastructure\Readers\LogReader.cs" />
@@ -130,7 +126,13 @@
     <Compile Include="Models\States\FileState.cs" />
     <Compile Include="Models\States\ListeningState.cs" />
     <Compile Include="Models\States\NeutralState.cs" />
+    <Compile Include="Models\States\Paginators\FilePaginator.cs" />
+    <Compile Include="Models\States\Paginators\IPaginator.cs" />
+    <Compile Include="Models\States\Paginators\NullPaginator.cs" />
+    <Compile Include="Models\States\Paginators\StreamPaginator.cs" />
+    <Compile Include="Models\States\Paginators\WaitPaginator.cs" />
     <Compile Include="Models\States\State.cs" />
+    <Compile Include="Models\IViewModel.cs" />
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
