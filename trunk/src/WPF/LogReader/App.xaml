@@ -5,7 +5,7 @@
     x:Class="LogReader.App">
 
 	<Application.Resources>
-        
+        <ResourceDictionary Source="Resources/BureauBlack.xaml"/>
     </Application.Resources>
 
 </am:CaliburnApplication>

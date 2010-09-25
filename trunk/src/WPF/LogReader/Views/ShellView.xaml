@@ -10,7 +10,7 @@
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Row="0" LastChildFill="False" HorizontalAlignment="Stretch" Width="Auto">
-            <ToolBar x:Name="tbToolBar" DockPanel.Dock="Left" Height="27" Width="Auto">
+            <ToolBar x:Name="tbToolBar" DockPanel.Dock="Left" Height="30" Width="Auto">
                 <Button ToolTip="Open" pf:Message.Attach="OpenLogFile">
                     <Image Source="/Resources/folder.png"/>
                 </Button>
@@ -167,7 +167,13 @@
                     </Grid>
                     <TabControl x:Name="tabControl1" Margin="0,130,0,0" HorizontalAlignment="Stretch" MinHeight="50">
                         <TabItem Header="Message">
-                            <TextBox x:Name="textBoxMessage" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" BorderThickness="0" IsReadOnly="True" />
+                            <TextBox x:Name="textBoxMessage" 
+                                     TextWrapping="Wrap"
+                                     HorizontalAlignment="Stretch" 
+                                     VerticalScrollBarVisibility="Visible" 
+                                     HorizontalScrollBarVisibility="Visible" 
+                                     BorderThickness="0" 
+                                     IsReadOnly="True" />
                         </TabItem>
                         <TabItem Header="Throwable">
                             <TextBox x:Name="textBoxThrowable" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" BorderThickness="0" IsReadOnly="True"/>
