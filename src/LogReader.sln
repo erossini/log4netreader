@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader.Wf", "WF\LogReader.Wf.csproj", "{7C5E581E-C322-428E-B080-DFCD58C0D012}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inffectus", "WPF\Inffectus\Inffectus.csproj", "{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Writter", "writter\Writter.csproj", "{F2CB05C8-2652-434A-BBD7-423321FD3403}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader", "WPF\LogReader\LogReader.csproj", "{12A6D32F-D1F2-4BAF-BD29-E17DDD1736C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25F7DE94-BE8C-43A9-BDB7-0082E0F45C1E}"
+	ProjectSection(SolutionItems) = preProject
+		creative\resources.txt = creative\resources.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,16 +32,6 @@ Global
 		{7C5E581E-C322-428E-B080-DFCD58C0D012}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{7C5E581E-C322-428E-B080-DFCD58C0D012}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7C5E581E-C322-428E-B080-DFCD58C0D012}.Release|x86.ActiveCfg = Release|Any CPU
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Debug|x86.ActiveCfg = Debug|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Debug|x86.Build.0 = Debug|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Release|Any CPU.ActiveCfg = Release|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Release|Mixed Platforms.Build.0 = Release|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Release|x86.ActiveCfg = Release|x86
-		{997DEAAC-90A1-4C36-9DD8-93D7BA77BBF3}.Release|x86.Build.0 = Release|x86
 		{F2CB05C8-2652-434A-BBD7-423321FD3403}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{F2CB05C8-2652-434A-BBD7-423321FD3403}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{F2CB05C8-2652-434A-BBD7-423321FD3403}.Debug|Mixed Platforms.Build.0 = Debug|x86

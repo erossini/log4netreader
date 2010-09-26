@@ -9,30 +9,28 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="0" LastChildFill="False" HorizontalAlignment="Stretch" Width="Auto">
-            <ToolBar x:Name="tbToolBar" DockPanel.Dock="Left" Height="30" Width="Auto">
-                <Button ToolTip="Open" pf:Message.Attach="OpenLogFile">
-                    <Image Source="/Resources/folder.png"/>
-                </Button>
-                <Button ToolTip="Listen" pf:Message.Attach="ListenForLogEvents">
-                    <Image Source="/Resources/control_play_blue.png"/>
-                </Button>
-                <Button ToolTip="Previos" pf:Message.Attach="PreviousPage">
-                    <Image Source="/Resources/control_rewind_blue.png"/>
-                </Button>
-                <Button ToolTip="Next" pf:Message.Attach="NextPage">
-                    <Image Source="/Resources/control_fastforward_blue.png"/>
-                </Button>
-                <Button pf:Message.Attach="GoToPage(pageIndex.Text)">Go to</Button>
-                <TextBox Width="50" x:Name="pageIndex"></TextBox>
-                <Button ToolTip="How to configure instant appender" pf:Message.Attach="ChangeMessage">
-                    <Image Source="/Resources/script_code.png"/>
-                </Button>
-                <Button ToolTip="Help" pf:Message.Attach="ChangeMessage">
-                    <Image Source="/Resources/help.png"/>
-                </Button>
-            </ToolBar>
-        </DockPanel>
+        <ToolBar x:Name="tbToolBar" Grid.Row="0" DockPanel.Dock="Left" Height="30" Width="Auto">
+            <Button ToolTip="Open" pf:Message.Attach="OpenLogFile">
+                <Image Source="/Resources/folder.png"/>
+            </Button>
+            <Button ToolTip="Listen" pf:Message.Attach="ListenForLogEvents">
+                <Image Source="/Resources/control_play_blue.png"/>
+            </Button>
+            <Button ToolTip="Previos" pf:Message.Attach="PreviousPage">
+                <Image Source="/Resources/control_rewind_blue.png"/>
+            </Button>
+            <Button ToolTip="Next" pf:Message.Attach="NextPage">
+                <Image Source="/Resources/control_fastforward_blue.png"/>
+            </Button>
+            <Button pf:Message.Attach="GoToPage(pageIndex.Text)">Go to</Button>
+            <TextBox Width="50" x:Name="pageIndex"></TextBox>
+            <Button ToolTip="How to configure instant appender" pf:Message.Attach="ChangeMessage">
+                <Image Source="/Resources/script_code.png"/>
+            </Button>
+            <Button ToolTip="Help" pf:Message.Attach="ChangeMessage">
+                <Image Source="/Resources/help.png"/>
+            </Button>
+        </ToolBar>
 
         <DockPanel Grid.Row="1">
 
