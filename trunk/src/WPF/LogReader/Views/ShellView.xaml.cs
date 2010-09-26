@@ -1,9 +1,10 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using LogReader.Models;
 
 namespace LogReader.Views
 {
-    public partial class ShellView : UserControl
+    public partial class ShellView : Window 
     {
         public ShellView()
         {
