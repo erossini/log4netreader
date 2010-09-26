@@ -37,7 +37,7 @@
             <ad:ResizingPanel Orientation="Vertical">
 
                 <ad:DockablePane>
-                    <ad:DockableContent Title="Events">
+                    <ad:DockableContent Title="Events" IsCloseable="False">
                     <Border BorderThickness="4,4,4,4" Margin="0" x:Name="borderTop" >
                         <ListView x:Name="listView1" 
             		                Grid.Row="0" 
@@ -97,7 +97,7 @@
                 </ad:DockablePane>
 
                 <ad:DockablePane>
-                    <ad:DockableContent Title="Details">
+                    <ad:DockableContent Title="Details" IsCloseable="False" >
                         <Grid x:Name="bottomGrid" Margin="5,6,5,0" Grid.Row="1" >
                             <!-- Data Fields and Tab Control  -->
                             <Grid Height="126" VerticalAlignment="Top" >
