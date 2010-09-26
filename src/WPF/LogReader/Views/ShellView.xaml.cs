@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using AvalonDock;
 using LogReader.Models;
 
 namespace LogReader.Views
@@ -9,6 +10,8 @@ namespace LogReader.Views
         public ShellView()
         {
             InitializeComponent();
+
+            tools.ToggleAutoHide();
         }
 
         private void EntrySelectionChanged(object sender, SelectionChangedEventArgs e)

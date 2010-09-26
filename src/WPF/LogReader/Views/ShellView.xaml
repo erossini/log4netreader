@@ -33,146 +33,170 @@
         </ToolBar>
 
         <ad:DockingManager Name="dockingManager" Grid.Row="1" >
-            <ad:ResizingPanel Orientation="Vertical">
+            <ad:ResizingPanel Orientation="Horizontal" >
 
-                <ad:DockablePane>
-                    <ad:DockableContent Title="Events" IsCloseable="False">
-                    <Border BorderThickness="4,4,4,4" Margin="0" x:Name="borderTop" >
-                        <ListView x:Name="listView1" 
+                <ad:ResizingPanel ad:ResizingPanel.ResizeWidth="0.5*" Orientation="Vertical">
+                    <ad:DockablePane>
+                        <ad:DockableContent Title="Events" IsCloseable="False">
+                            <Border BorderThickness="4,4,4,4" Margin="0" x:Name="borderTop" >
+                                <ListView x:Name="listView1" 
             		                Grid.Row="0" 
             		                ItemsSource= "{Binding Path=Entries}"
                                     SelectionChanged="EntrySelectionChanged"
             		                AllowDrop="True">
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="{x:Type ListViewItem}">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Level}" Value="ERROR">
-                                            <Setter Property="Background" Value="#E7CCD4"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Level}" Value="INFO">
-                                            <Setter Property="Background" Value="#F7EEF0"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Level}" Value="DEBUG">
-                                            <Setter Property="Background" Value="#FCF9FA"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Level}" Value="WARN">
-                                            <Setter Property="Background" Value="#F0DEE3"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Level}" Value="FATAL">
-                                            <Setter Property="Background" Value="#DFBBC5"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Level}" Value="COMPRESSION">
-                                            <Setter Property="Background" Value="Gainsboro" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ListView.ItemContainerStyle>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Level}" Value="ERROR">
+                                                    <Setter Property="Background" Value="#E7CCD4"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Level}" Value="INFO">
+                                                    <Setter Property="Background" Value="#F7EEF0"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Level}" Value="DEBUG">
+                                                    <Setter Property="Background" Value="#FCF9FA"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Level}" Value="WARN">
+                                                    <Setter Property="Background" Value="#F0DEE3"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Level}" Value="FATAL">
+                                                    <Setter Property="Background" Value="#DFBBC5"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Level}" Value="COMPRESSION">
+                                                    <Setter Property="Background" Value="Gainsboro" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
 
-                            <ListView.View>
-                                <GridView x:Name="GridView1">
-                                    <GridViewColumn Header="Item" DisplayMemberBinding="{Binding Item}"  />
-                                    <GridViewColumn Header="TimeStamp" DisplayMemberBinding="{Binding TimeStamp, ConverterCulture=fr-FR, StringFormat=HH:mm:ss.fff}"/>
-                                    <GridViewColumn Header="">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <Image Source="{Binding Image}" Width="16" Height="16" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                    <GridViewColumn  DisplayMemberBinding="{Binding Level}" Header="Level" />
-                                    <GridViewColumn Header="Thread" DisplayMemberBinding="{Binding Thread}"  />
-                                    <GridViewColumn Header="Message" DisplayMemberBinding="{Binding Message}"  />
-                                    <GridViewColumn Header="MachineName" DisplayMemberBinding="{Binding MachineName}"  />
-                                    <GridViewColumn Header="HostName" DisplayMemberBinding="{Binding HostName}"  />
-                                    <GridViewColumn Header="UserName" DisplayMemberBinding="{Binding UserName}"  />
-                                    <GridViewColumn Header="App" DisplayMemberBinding="{Binding App}"  />
-                                    <GridViewColumn Header="Class" DisplayMemberBinding="{Binding Class}"  />
-                                </GridView>
-                            </ListView.View>
+                                    <ListView.View>
+                                        <GridView x:Name="GridView1">
+                                            <GridViewColumn Header="Item" DisplayMemberBinding="{Binding Item}"  />
+                                            <GridViewColumn Header="TimeStamp" DisplayMemberBinding="{Binding TimeStamp, ConverterCulture=fr-FR, StringFormat=HH:mm:ss.fff}"/>
+                                            <GridViewColumn Header="">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image Source="{Binding Image}" Width="16" Height="16" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn  DisplayMemberBinding="{Binding Level}" Header="Level" />
+                                            <GridViewColumn Header="Thread" DisplayMemberBinding="{Binding Thread}"  />
+                                            <GridViewColumn Header="Message" DisplayMemberBinding="{Binding Message}"  />
+                                            <GridViewColumn Header="MachineName" DisplayMemberBinding="{Binding MachineName}"  />
+                                            <GridViewColumn Header="HostName" DisplayMemberBinding="{Binding HostName}"  />
+                                            <GridViewColumn Header="UserName" DisplayMemberBinding="{Binding UserName}"  />
+                                            <GridViewColumn Header="App" DisplayMemberBinding="{Binding App}"  />
+                                            <GridViewColumn Header="Class" DisplayMemberBinding="{Binding Class}"  />
+                                        </GridView>
+                                    </ListView.View>
 
-                        </ListView>
-                    </Border>
-                </ad:DockableContent>
-                </ad:DockablePane>
+                                </ListView>
+                            </Border>
+                        </ad:DockableContent>
+                    </ad:DockablePane>
 
-                <ad:DockablePane>
-                    <ad:DockableContent Title="Details" IsCloseable="False" >
-                        <Grid x:Name="bottomGrid" Margin="5,6,5,0" Grid.Row="1" >
-                            <!-- Data Fields and Tab Control  -->
-                            <Grid Height="126" VerticalAlignment="Top" >
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="47.214"/>
-                                    <ColumnDefinition Width="0.297*"/>
-                                    <ColumnDefinition Width="81.482"/>
-                                    <ColumnDefinition Width="0.231*"/>
-                                    <ColumnDefinition Width="96.796"/>
-                                    <ColumnDefinition Width="0.197*"/>
-                                    <ColumnDefinition Width="58.69"/>
-                                    <ColumnDefinition Width="0.275*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="10"/>
-                                    <RowDefinition Height="28"/>
-                                    <RowDefinition Height="28"/>
-                                    <RowDefinition Height="28"/>
-                                    <RowDefinition Height="28"/>
-                                    <RowDefinition Height="10"/>
-                                </Grid.RowDefinitions>
+                    <ad:DockablePane>
+                        <ad:DockableContent Title="Details" IsCloseable="False" >
+                            <Grid x:Name="bottomGrid" Margin="5,6,5,0" Grid.Row="1" >
+                                <!-- Data Fields and Tab Control  -->
+                                <Grid Height="126" VerticalAlignment="Top" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="47.214"/>
+                                        <ColumnDefinition Width="0.297*"/>
+                                        <ColumnDefinition Width="81.482"/>
+                                        <ColumnDefinition Width="0.231*"/>
+                                        <ColumnDefinition Width="96.796"/>
+                                        <ColumnDefinition Width="0.197*"/>
+                                        <ColumnDefinition Width="58.69"/>
+                                        <ColumnDefinition Width="0.275*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="28"/>
+                                        <RowDefinition Height="28"/>
+                                        <RowDefinition Height="28"/>
+                                        <RowDefinition Height="28"/>
+                                        <RowDefinition Height="10"/>
+                                    </Grid.RowDefinitions>
 
-                                <!-- Row 1-->
-                                <Image x:Name="image1" Width="16" Height="16" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0" />
-                                <TextBox x:Name="textBoxLevel" Grid.Column="1" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
-                                <Label Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Time Stamp" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxTimeStamp" Grid.Column="3" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
-                                <Label Grid.Column="4" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Machine Name" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxMachineName" Grid.Column="5" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
-                                <Label Grid.Column="6" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Thread" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxThread" Grid.Column="7" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <!-- Row 1-->
+                                    <Image x:Name="image1" Width="16" Height="16" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0" />
+                                    <TextBox x:Name="textBoxLevel" Grid.Column="1" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
+                                    <Label Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Time Stamp" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxTimeStamp" Grid.Column="3" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
+                                    <Label Grid.Column="4" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Machine Name" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxMachineName" Grid.Column="5" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
+                                    <Label Grid.Column="6" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Thread" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxThread" Grid.Column="7" Grid.Row="1" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
 
-                                <!-- Row 2 -->
-                                <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Item" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxItem" Grid.Column="1" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
-                                <Label Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Host Name" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxHostName" Grid.Column="3" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
-                                <Label Grid.Column="4" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="User Name" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxUserName" Grid.Column="5" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
-                                <Label Grid.Column="6" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="App" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxApp" Grid.Column="7" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <!-- Row 2 -->
+                                    <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Item" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxItem" Grid.Column="1" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center" />
+                                    <Label Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Host Name" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxHostName" Grid.Column="3" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <Label Grid.Column="4" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="User Name" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxUserName" Grid.Column="5" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <Label Grid.Column="6" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,5,3" Content="App" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxApp" Grid.Column="7" Grid.Row="2" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
 
-                                <!-- Row 3-->
-                                <Label Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Class" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxClass" Grid.Column="1" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
-                                <Label Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Method" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxMethod" Grid.Column="3" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
-                                <Label Grid.Column="4" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Line" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxLine" Grid.Column="5" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
-                                <Label Grid.Column="6" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Log File" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxLog" Grid.Column="7" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <!-- Row 3-->
+                                    <Label Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Class" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxClass" Grid.Column="1" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <Label Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Method" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxMethod" Grid.Column="3" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <Label Grid.Column="4" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Line" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxLine" Grid.Column="5" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <Label Grid.Column="6" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,3" Content="Log File" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxLog" Grid.Column="7" Grid.Row="3" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
 
-                                <!-- Row 4-->
-                                <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="0,0,5,3" Content="File" VerticalAlignment="Center"/>
-                                <TextBox x:Name="textBoxfile" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="4" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
+                                    <!-- Row 4-->
+                                    <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="0,0,5,3" Content="File" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="textBoxfile" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="4" IsReadOnly="True" Margin="0,0,0,4" VerticalAlignment="Center"/>
 
-                            </Grid>
-                            <TabControl x:Name="tabControl1" Margin="0,130,0,0" HorizontalAlignment="Stretch" MinHeight="50">
-                                <TabItem Header="Message">
-                                    <TextBox x:Name="textBoxMessage" 
+                                </Grid>
+                                <TabControl x:Name="tabControl1" Margin="0,130,0,0" HorizontalAlignment="Stretch" MinHeight="50">
+                                    <TabItem Header="Message">
+                                        <TextBox x:Name="textBoxMessage" 
                                      TextWrapping="Wrap"
                                      HorizontalAlignment="Stretch" 
                                      VerticalScrollBarVisibility="Visible" 
                                      HorizontalScrollBarVisibility="Visible" 
                                      BorderThickness="0" 
                                      IsReadOnly="True" />
-                                </TabItem>
-                                <TabItem Header="Throwable">
-                                    <TextBox x:Name="textBoxThrowable" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" BorderThickness="0" IsReadOnly="True"/>
-                                </TabItem>
-                            </TabControl>
-                        </Grid>
-                    </ad:DockableContent>
-                </ad:DockablePane>
+                                    </TabItem>
+                                    <TabItem Header="Throwable">
+                                        <TextBox x:Name="textBoxThrowable" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" BorderThickness="0" IsReadOnly="True"/>
+                                    </TabItem>
+                                </TabControl>
+                            </Grid>
+                        </ad:DockableContent>
+                    </ad:DockablePane>
+                </ad:ResizingPanel>
+
+
+                <ad:ResizingPanel ad:ResizingPanel.ResizeWidth="0.5*" Orientation="Horizontal" >
+                    <ad:DockablePane Name="tools" >
+                       
+                        <ad:DockableContent Name ="search" Title="Search" IsCloseable="False">
+                            <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
+                        </ad:DockableContent>
+
+                        <ad:DockableContent Name ="results" Title="Results" IsCloseable="False" >
+                            <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
+                        </ad:DockableContent>
+
+                        <ad:DockableContent Name ="info" Title="Source Info" IsCloseable="False">
+                            <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
+                        </ad:DockableContent>
+
+                    </ad:DockablePane>
+                </ad:ResizingPanel>
+
 
             </ad:ResizingPanel>
+            
+            
         </ad:DockingManager>
 
     </Grid>
