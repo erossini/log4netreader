@@ -6,11 +6,11 @@
               >
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="27"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ToolBar x:Name="tbToolBar" Grid.Row="0" DockPanel.Dock="Left" Height="30" Width="Auto">
+        <ToolBar x:Name="tbToolBar" Grid.Row="0" DockPanel.Dock="Left" Height="Auto" Width="Auto">
             <Button ToolTip="Open" pf:Message.Attach="OpenLogFile">
                 <Image Source="/Resources/folder.png"/>
             </Button>
