@@ -11,7 +11,7 @@ namespace LogReader.Views
         {
             InitializeComponent();
 
-            tools.ToggleAutoHide();
+            search.ToggleAutoHide();
         }
 
         private void EntrySelectionChanged(object sender, SelectionChangedEventArgs e)
