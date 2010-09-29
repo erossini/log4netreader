@@ -36,14 +36,10 @@
             <ad:ResizingPanel Orientation="Horizontal" >
 
                 <ad:ResizingPanel ad:ResizingPanel.ResizeWidth="0.5*" Orientation="Vertical">
-                    <ad:DockablePane>
+                    <ad:DockablePane SelectedIndex="0">
                         <ad:DockableContent Title="Events" IsCloseable="False">
                             <Border BorderThickness="4,4,4,4" Margin="0" x:Name="borderTop" >
-                                <ListView x:Name="listView1" 
-            		                Grid.Row="0" 
-            		                ItemsSource= "{Binding Path=Entries}"
-                                    SelectionChanged="EntrySelectionChanged"
-            		                AllowDrop="True">
+                                <ListView x:Name="listView1" Grid.Row="0" ItemsSource= "{Binding Path=Entries}" SelectionChanged="EntrySelectionChanged" AllowDrop="True">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Style.Triggers>
@@ -101,9 +97,67 @@
                                 </ListView>
                             </Border>
                         </ad:DockableContent>
+                	
+                    	<ad:DockableContent Name ="search" Title="Search" IsCloseable="False">
+                            <DockPanel Margin="4,4,8,4">
+							        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+							            <Button Height="23" Name="buttonOK" Width="75"  Margin="3" IsDefault="True">Search</Button>
+							        </StackPanel>
+							        <Grid Name="MainGrid">
+							            <Grid.RowDefinitions>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							                <RowDefinition Height="25"/>
+							            </Grid.RowDefinitions>
+							            <Grid.ColumnDefinitions>
+							                <ColumnDefinition Width="90" />
+							                <ColumnDefinition Width="*"/>
+							            </Grid.ColumnDefinitions>
+							            <Label Grid.Column="0" Grid.Row="0" Height="28" Foreground="White" Content="UserName"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="0" Height="23" Name="comboBoxUserName" SelectedItem="{Binding UserName}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="1" Height="28" Foreground="White" Content="Level"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="1" Height="23" Name="comboBoxLevel" SelectedItem="{Binding Level}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="2" Foreground="White" Content="Message"></Label>
+							            <TextBox Grid.Column="1" Grid.Row="2" Height="23" Text="{Binding Message}" />
+							            <Label Grid.Column="0" Grid.Row="3" Height="28" Foreground="White" Content="Thread"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="3" Height="23" Name="comboBoxThread" SelectedItem="{Binding Thread}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="4" Height="28" Foreground="White" Content="Machine Name"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="4" Height="23" Name="comboBoxMachineName" SelectedItem="{Binding MachineName}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="5" Height="28" Foreground="White" Content="Host Name"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="5" Height="23" Name="comboBoxHostName" SelectedItem="{Binding HostName}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="6" Height="28" Foreground="White" Content="Application"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="6" Height="23" Name="comboBoxApplication" SelectedItem="{Binding App}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="7" Height="28" Foreground="White" Content="Throwable"></Label>
+							            <TextBox Grid.Column="1" Grid.Row="7" Height="23" Text="{Binding Throwable}" />
+							            <Label Grid.Column="0" Grid.Row="8" Height="28" Foreground="White" Content="Class"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="8" Height="23" Name="comboBoxClass" SelectedItem="{Binding Class}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="9" Height="28" Foreground="White" Content="Method"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="9" Height="23" Name="comboBoxMethod" SelectedItem="{Binding Method}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="10" Height="28" Foreground="White" Content="File"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="10" Height="23" Name="comboBoxFile" SelectedItem="{Binding File}" IsEditable="True" />
+							            <Label Grid.Column="0" Grid.Row="11" Height="28" Foreground="White" Content="Log File"></Label>
+							            <ComboBox Grid.Column="1" Grid.Row="11" Height="23" Name="comboLogFile" SelectedItem="{Binding LogName}" IsEditable="True" />
+							            
+							        </Grid>
+							    </DockPanel>
+                        </ad:DockableContent>
+                    	
+                	       <ad:DockableContent Name ="info" Title="Source Info" IsCloseable="False">
+                            <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
+                        </ad:DockableContent>
+
                     </ad:DockablePane>
 
-                    <ad:DockablePane>
+                    <ad:DockablePane SelectedIndex="0">
                         <ad:DockableContent Title="Details" IsCloseable="False" >
                             <Grid x:Name="bottomGrid" Margin="5,6,5,0" Grid.Row="1" >
                                 <!-- Data Fields and Tab Control  -->
@@ -178,31 +232,15 @@
                                 </TabControl>
                             </Grid>
                         </ad:DockableContent>
-                    </ad:DockablePane>
-                </ad:ResizingPanel>
-
-
-                <ad:ResizingPanel ad:ResizingPanel.ResizeWidth="0.5*" Orientation="Horizontal" >
-                    <ad:DockablePane Name="tools" >
-                       
-                        <ad:DockableContent Name ="search" Title="Search" IsCloseable="False">
+                	        
+                    	<ad:DockableContent Name ="results" Title="Results" IsCloseable="False" >
                             <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
-                        </ad:DockableContent>
-
-                        <ad:DockableContent Name ="results" Title="Results" IsCloseable="False" >
-                            <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
-                        </ad:DockableContent>
-
-                        <ad:DockableContent Name ="info" Title="Source Info" IsCloseable="False">
-                            <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
-                        </ad:DockableContent>
+                       </ad:DockableContent>
 
                     </ad:DockablePane>
                 </ad:ResizingPanel>
-
 
             </ad:ResizingPanel>
-            
             
         </ad:DockingManager>
 
