@@ -232,8 +232,28 @@
                         </ad:DockableContent>
                 	        
                     	<ad:DockableContent Name ="results" Title="Results" IsCloseable="False" >
-                            <TextBox AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" AcceptsTab="True"/>
-                       </ad:DockableContent>
+
+                            <ListView ItemsSource= "{Binding Path=Results}" AllowDrop="True">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Item" DisplayMemberBinding="{Binding Item}"  />
+                                        <GridViewColumn Header="Message" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock 
+                                                            Text="{Binding Message}" 
+                                                            TextWrapping="NoWrap" 
+                                                            TextTrimming="WordEllipsis" Height="16" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                        </ad:DockableContent>
 
                     </ad:DockablePane>
                 </ad:ResizingPanel>
