@@ -148,6 +148,7 @@
     <Compile Include="Models\States\Paginators\WaitPaginator.cs" />
     <Compile Include="Models\States\State.cs" />
     <Compile Include="Models\IViewModel.cs" />
+    <Compile Include="ViewModels\CriteriaViewModel.cs" />
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
