@@ -101,7 +101,7 @@
                     	<ad:DockableContent Name ="search" Title="Search" IsCloseable="False">
                             <DockPanel Margin="4,4,8,4">
 							        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-							            <Button Height="23" Name="buttonOK" Width="75"  Margin="3" IsDefault="True">Search</Button>
+                                    <Button Height="23" Name="buttonOK" Width="75"  Margin="3" IsDefault="True" pf:Message.Attach="Search">Search</Button>
 							        </StackPanel>
 							        <Grid Name="MainGrid">
 							            <Grid.RowDefinitions>
@@ -123,29 +123,27 @@
 							                <ColumnDefinition Width="*"/>
 							            </Grid.ColumnDefinitions>
 							            <Label Grid.Column="0" Grid.Row="0" Height="28" Foreground="White" Content="UserName"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="0" Height="23" Name="comboBoxUserName" SelectedItem="{Binding UserName}" IsEditable="True" />
+                                        <TextBox Grid.Column="1" Grid.Row="0" Height="23" Name="userName" Text="{Binding Criteria.UserName}" />
 							            <Label Grid.Column="0" Grid.Row="1" Height="28" Foreground="White" Content="Level"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="1" Height="23" Name="comboBoxLevel" SelectedItem="{Binding Level}" IsEditable="True" />
-							            <Label Grid.Column="0" Grid.Row="2" Foreground="White" Content="Message"></Label>
-							            <TextBox Grid.Column="1" Grid.Row="2" Height="23" Text="{Binding Message}" />
+                                    <ComboBox Grid.Column="1" Grid.Row="1" Height="23" Name="boxLevel" Text="{Binding Criteria.Level}" IsEditable="False" >
+                                            <ComboBoxItem >Error</ComboBoxItem>
+                                        </ComboBox>
+                                        <Label Grid.Column="0" Grid.Row="2" Foreground="White" Content="Message"></Label>
+                                        <TextBox Grid.Column="1" Grid.Row="2" Height="23" Text="{Binding Criteria.Message}" />
 							            <Label Grid.Column="0" Grid.Row="3" Height="28" Foreground="White" Content="Thread"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="3" Height="23" Name="comboBoxThread" SelectedItem="{Binding Thread}" IsEditable="True" />
+                                        <TextBox Grid.Column="1" Grid.Row="3" Height="23" Name="comboBoxThread" Text="{Binding Criteria.Thread}" />
 							            <Label Grid.Column="0" Grid.Row="4" Height="28" Foreground="White" Content="Machine Name"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="4" Height="23" Name="comboBoxMachineName" SelectedItem="{Binding MachineName}" IsEditable="True" />
+                                        <TextBox Grid.Column="1" Grid.Row="4" Height="23" Name="comboBoxMachineName" Text="{Binding Criteria.MachineName}" />
 							            <Label Grid.Column="0" Grid.Row="5" Height="28" Foreground="White" Content="Host Name"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="5" Height="23" Name="comboBoxHostName" SelectedItem="{Binding HostName}" IsEditable="True" />
+                                        <TextBox Grid.Column="1" Grid.Row="5" Height="23" Name="comboBoxHostName" Text="{Binding Criteria.HostName}" />
 							            <Label Grid.Column="0" Grid.Row="6" Height="28" Foreground="White" Content="Application"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="6" Height="23" Name="comboBoxApplication" SelectedItem="{Binding App}" IsEditable="True" />
+                                        <TextBox Grid.Column="1" Grid.Row="6" Height="23" Name="comboBoxApplication" Text="{Binding Criteria.App}" />
 							            <Label Grid.Column="0" Grid.Row="7" Height="28" Foreground="White" Content="Throwable"></Label>
-							            <TextBox Grid.Column="1" Grid.Row="7" Height="23" Text="{Binding Throwable}" />
+                                        <TextBox Grid.Column="1" Grid.Row="7" Height="23" Text="{Binding Criteria.Throwable}" />
 							            <Label Grid.Column="0" Grid.Row="8" Height="28" Foreground="White" Content="Class"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="8" Height="23" Name="comboBoxClass" SelectedItem="{Binding Class}" IsEditable="True" />
+                                        <TextBox Grid.Column="1" Grid.Row="8" Height="23" Name="comboBoxClass" Text="{Binding Criteria.Class}" />
 							            <Label Grid.Column="0" Grid.Row="9" Height="28" Foreground="White" Content="Method"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="9" Height="23" Name="comboBoxMethod" SelectedItem="{Binding Method}" IsEditable="True" />
-							            <Label Grid.Column="0" Grid.Row="10" Height="28" Foreground="White" Content="File"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="10" Height="23" Name="comboBoxFile" SelectedItem="{Binding File}" IsEditable="True" />
-							            <Label Grid.Column="0" Grid.Row="11" Height="28" Foreground="White" Content="Log File"></Label>
-							            <ComboBox Grid.Column="1" Grid.Row="11" Height="23" Name="comboLogFile" SelectedItem="{Binding LogName}" IsEditable="True" />
+                                        <TextBox Grid.Column="1" Grid.Row="9" Height="23" Name="comboBoxMethod" Text="{Binding Criteria.Method}" />
 							            
 							        </Grid>
 							    </DockPanel>
