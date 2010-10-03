@@ -136,7 +136,6 @@
     <Compile Include="Infrastructure\Readers\LogReader.cs" />
     <Compile Include="Models\Acumulator.cs" />
     <Compile Include="Models\LogEntry.cs" />
-    <Compile Include="Infrastructure\Readers\LogFileService.cs" />
     <Compile Include="Models\StateMachine.cs" />
     <Compile Include="Models\States\FileState.cs" />
     <Compile Include="Models\States\ListeningState.cs" />

@@ -3,11 +3,35 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using LogReader.Models;
+using Microsoft.Win32;
 
 namespace LogReader.Infrastructure.Readers
 {
     public class LogReader
     {
+        public List<LogEntry> GetFileEntries()
+        {
+            var fileName = Choose();
+
+            if (string.IsNullOrEmpty(fileName))
+                return new List<LogEntry>();
+
+            return GetEntries(fileName);
+        }
+
+        private string Choose()
+        {
+            var dlg = new OpenFileDialog
+            {
+                DefaultExt = ".xml",
+                Filter = "Xml documents (.xml)|*.xml"
+            };
+
+            var result = dlg.ShowDialog();
+
+            return result.Value ? dlg.FileName : String.Empty;
+        }
+
         public List<LogEntry> GetEntries(string logFileName)
         {
             var entries = new List<LogEntry>();

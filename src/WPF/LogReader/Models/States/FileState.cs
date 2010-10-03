@@ -12,8 +12,8 @@ namespace LogReader.Models.States
 
         public override void Enter()
         {
-            var logFileService = new LogFileService();
-            var entries = logFileService.GetFileEntries();
+            var logReader = new Infrastructure.Readers.LogReader();
+            var entries = logReader.GetFileEntries();
 
             Acumulator.LoadEntries(entries);
 
