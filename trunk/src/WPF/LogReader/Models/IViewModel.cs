@@ -7,5 +7,6 @@ namespace LogReader.Models
     {
         ObservableCollection<LogEntry> Entries { get; set; }
         PageInfo Info { get; set; }
+        ObservableCollection<LogEntry> SearchResults { get; set; }
     }
 }

@@ -125,8 +125,12 @@
 							            <Label Grid.Column="0" Grid.Row="0" Height="28" Foreground="White" Content="UserName"></Label>
                                         <TextBox Grid.Column="1" Grid.Row="0" Height="23" Name="userName" Text="{Binding Criteria.UserName}" />
 							            <Label Grid.Column="0" Grid.Row="1" Height="28" Foreground="White" Content="Level"></Label>
-                                    <ComboBox Grid.Column="1" Grid.Row="1" Height="23" Name="boxLevel" Text="{Binding Criteria.Level}" IsEditable="False" >
-                                            <ComboBoxItem >Error</ComboBoxItem>
+                                        <ComboBox Grid.Column="1" Grid.Row="1" Height="23" Name="boxLevel" Text="{Binding Criteria.Level}" IsEditable="False" >
+                                            <ComboBoxItem >FATAL</ComboBoxItem>
+                                            <ComboBoxItem >ERROR</ComboBoxItem>
+                                            <ComboBoxItem >INFO</ComboBoxItem>
+                                            <ComboBoxItem >DEBUG</ComboBoxItem>
+                                            <ComboBoxItem >WARN</ComboBoxItem>
                                         </ComboBox>
                                         <Label Grid.Column="0" Grid.Row="2" Foreground="White" Content="Message"></Label>
                                         <TextBox Grid.Column="1" Grid.Row="2" Height="23" Text="{Binding Criteria.Message}" />
@@ -233,7 +237,7 @@
                 	        
                     	<ad:DockableContent Name ="results" Title="Results" IsCloseable="False" >
 
-                            <ListView ItemsSource= "{Binding Path=Results}" AllowDrop="True">
+                            <ListView ItemsSource= "{Binding Path=SearchResults}" AllowDrop="True">
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Header="Item" DisplayMemberBinding="{Binding Item}"  />

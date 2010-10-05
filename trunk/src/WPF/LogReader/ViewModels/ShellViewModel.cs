@@ -10,6 +10,7 @@ namespace LogReader.ViewModels
         private readonly StateMachine _appStateMachine;
         private CriteriaViewModel _criteria = new CriteriaViewModel();
         private ObservableCollection<LogEntry> _entries;
+        private ObservableCollection<LogEntry> _searchResults;
         private PageInfo _info;
 
         public ShellViewModel(StateMachine appStateMachine)
@@ -37,6 +38,16 @@ namespace LogReader.ViewModels
             {
                 _entries = value;
                 NotifyOfPropertyChange("Entries");
+            }
+        }
+
+        public ObservableCollection<LogEntry> SearchResults
+        {
+            get { return _searchResults; }
+            set
+            {
+                _searchResults = value;
+                NotifyOfPropertyChange("SearchResults");
             }
         }
 
@@ -82,6 +93,7 @@ namespace LogReader.ViewModels
 
         public void Search()
         {
+            _appStateMachine.SearchBy(Criteria);
         }
     }
 }

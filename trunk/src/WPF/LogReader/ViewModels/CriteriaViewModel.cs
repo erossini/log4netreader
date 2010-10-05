@@ -4,6 +4,7 @@ namespace LogReader.ViewModels
 {
     public class CriteriaViewModel : PropertyChangedBase
     {
+        private int _item;
         private string _app;
         private string _class;
         private string _file;
@@ -16,6 +17,16 @@ namespace LogReader.ViewModels
         private string _thread;
         private string _throwable;
         private string _userName;
+
+        public int Item
+        {
+            get { return _item; }
+            set
+            {
+                _item = value;
+                NotifyOfPropertyChange("Item");
+            }
+        }
 
         public string Thread
         {

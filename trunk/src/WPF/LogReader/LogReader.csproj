@@ -135,6 +135,7 @@
     <Compile Include="Infrastructure\Readers\InstantReader.cs" />
     <Compile Include="Infrastructure\Readers\LogReader.cs" />
     <Compile Include="Models\Acumulator.cs" />
+    <Compile Include="Models\AcumulatorSearcher.cs" />
     <Compile Include="Models\LogEntry.cs" />
     <Compile Include="Models\StateMachine.cs" />
     <Compile Include="Models\States\FileState.cs" />
