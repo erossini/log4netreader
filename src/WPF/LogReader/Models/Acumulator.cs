@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using LogReader.Models.Observers;
 
@@ -18,6 +19,11 @@ namespace LogReader.Models
         public Acumulator()
         {
             _entries = new List<LogEntry>();
+        }
+
+        public IEnumerable<LogEntry> Entries
+        {
+            get { return new ReadOnlyCollection<LogEntry>(_entries); }
         }
 
         public List<LogEntry> GetActivePage()
