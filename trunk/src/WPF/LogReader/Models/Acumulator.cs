@@ -12,7 +12,7 @@ namespace LogReader.Models
 
         public int ErrorCount;
         public int InfoCount;
-        public int PageSize = 10;
+        public int PageSize = 100;
         public int Pages;
         public int WarnCount;
 
