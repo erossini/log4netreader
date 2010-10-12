@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using LogReader.Models.ViewModels;
 using LogReader.ViewModels;
 
 namespace LogReader.Models
 {
     public class AcumulatorSearcher
     {
-        public ObservableCollection<LogEntry> QueryByCriteria(IEnumerable<LogEntry> logEntries, CriteriaViewModel criteria)
+        public ObservableCollection<LogEntry> QueryByCriteria(IEnumerable<LogEntry> logEntries, ICriteriaViewModel criteria)
         {
             if (logEntries.Count() == 0)
                 return new ObservableCollection<LogEntry>();

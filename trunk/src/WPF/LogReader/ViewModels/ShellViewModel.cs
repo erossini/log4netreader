@@ -1,35 +1,29 @@
 using System.Collections.ObjectModel;
-using Caliburn.PresentationFramework.ApplicationModel;
+using Caliburn.Core;
 using LogReader.Models;
 using LogReader.Models.States.Paginators;
+using LogReader.Models.ViewModels;
 
 namespace LogReader.ViewModels
 {
-    public class ShellViewModel : Presenter, IViewModel
+    public class ShellViewModel : PropertyChangedBase, IShellViewModel
     {
-        private readonly StateMachine _appStateMachine;
-        private CriteriaViewModel _criteria = new CriteriaViewModel();
+        private ICriteriaViewModel _criteria = new CriteriaViewModel();
         private ObservableCollection<LogEntry> _entries;
-        private ObservableCollection<LogEntry> _searchResults;
         private PageInfo _info;
+        private ObservableCollection<LogEntry> _searchResults;
 
-        public ShellViewModel(StateMachine appStateMachine)
-        {
-            _appStateMachine = appStateMachine;
-            _appStateMachine.SetViewModel(this);
-        }
+        #region IViewModel Members
 
-        public CriteriaViewModel Criteria
+        public ICriteriaViewModel Criteria
         {
             get { return _criteria; }
             set
             {
                 _criteria = value;
-                NotifyOfPropertyChange("Criteria");
+                NotifyOfPropertyChange(() => Criteria);
             }
         }
-
-        #region IViewModel Members
 
         public ObservableCollection<LogEntry> Entries
         {
@@ -37,7 +31,7 @@ namespace LogReader.ViewModels
             set
             {
                 _entries = value;
-                NotifyOfPropertyChange("Entries");
+                NotifyOfPropertyChange(() => Entries);
             }
         }
 
@@ -47,7 +41,7 @@ namespace LogReader.ViewModels
             set
             {
                 _searchResults = value;
-                NotifyOfPropertyChange("SearchResults");
+                NotifyOfPropertyChange(() => SearchResults);
             }
         }
 
@@ -57,43 +51,10 @@ namespace LogReader.ViewModels
             set
             {
                 _info = value;
-                NotifyOfPropertyChange("Info");
+                NotifyOfPropertyChange(() => Info);
             }
         }
 
         #endregion
-
-        public void ListenForLogEvents()
-        {
-            _appStateMachine.ShowLogsCommingOverWire();
-        }
-
-        public void OpenLogFile()
-        {
-            _appStateMachine.LoadFileLogs();
-        }
-
-        public void PreviousPage()
-        {
-            _appStateMachine.PreviousPage();
-        }
-
-        public void NextPage()
-        {
-            _appStateMachine.NextPage();
-        }
-
-        public void GoToPage(string index)
-        {
-            int pageIndex = 1;
-
-            if (int.TryParse(index, out pageIndex))
-                _appStateMachine.GoToPage(pageIndex);
-        }
-
-        public void Search()
-        {
-            _appStateMachine.SearchBy(Criteria);
-        }
     }
 }

@@ -1,4 +1,5 @@
 using LogReader.Models.States.Paginators;
+using LogReader.Models.ViewModels;
 
 namespace LogReader.Models.States
 {
@@ -7,7 +8,7 @@ namespace LogReader.Models.States
         protected Paginator Paginator;
         protected StateMachine StateMachine { get; private set; }
 
-        public IViewModel ViewModel;
+        public IShellViewModel ViewModel;
         public Acumulator Acumulator;
 
         public abstract void Enter();

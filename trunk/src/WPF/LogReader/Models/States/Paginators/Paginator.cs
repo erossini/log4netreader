@@ -1,14 +1,15 @@
 using System.Collections.ObjectModel;
 using LogReader.Models.Observers;
+using LogReader.Models.ViewModels;
 
 namespace LogReader.Models.States.Paginators
 {
     public abstract class Paginator : IObserver
     {
-        protected readonly IViewModel ViewModel;
+        protected readonly IShellViewModel ViewModel;
         protected readonly Acumulator Acumulator;
 
-        protected Paginator(IViewModel viewModel, Acumulator acumulator)
+        protected Paginator(IShellViewModel viewModel, Acumulator acumulator)
         {
             ViewModel = viewModel;
             Acumulator = acumulator;
