@@ -1,8 +1,10 @@
+using LogReader.Models.ViewModels;
+
 namespace LogReader.Models.States.Paginators
 {
     public class WaitPaginator : Paginator
     {
-        public WaitPaginator(IViewModel viewModel, Acumulator acumulator) : base(viewModel, acumulator)
+        public WaitPaginator(IShellViewModel viewModel, Acumulator acumulator) : base(viewModel, acumulator)
         {
         }
 

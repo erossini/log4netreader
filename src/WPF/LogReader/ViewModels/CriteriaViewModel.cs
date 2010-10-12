@@ -1,14 +1,15 @@
 using Caliburn.Core;
+using LogReader.Models.ViewModels;
 
 namespace LogReader.ViewModels
 {
-    public class CriteriaViewModel : PropertyChangedBase
+    public class CriteriaViewModel : PropertyChangedBase, ICriteriaViewModel
     {
-        private int _item;
         private string _app;
         private string _class;
         private string _file;
         private string _hostName;
+        private int _item;
         private string _level;
         private string _line;
         private string _machineName;
@@ -17,6 +18,8 @@ namespace LogReader.ViewModels
         private string _thread;
         private string _throwable;
         private string _userName;
+
+        #region ICriteriaViewModel Members
 
         public int Item
         {
@@ -147,5 +150,7 @@ namespace LogReader.ViewModels
                 NotifyOfPropertyChange("Level");
             }
         }
+
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using LogReader.Models.States;
+using LogReader.Models.ViewModels;
 using LogReader.ViewModels;
 
 namespace LogReader.Models
@@ -9,9 +10,9 @@ namespace LogReader.Models
         private State _state = new NeutralState();
         public readonly Acumulator Acumulator = new Acumulator();
         private readonly AcumulatorSearcher _acumulatorSearcher = new AcumulatorSearcher();
-        public IViewModel ViewModel;
+        public IShellViewModel ViewModel;
 
-        public void SetViewModel(IViewModel viewModel)
+        public StateMachine(IShellViewModel viewModel)
         {
             ViewModel = viewModel;
         }
@@ -48,7 +49,7 @@ namespace LogReader.Models
             _state.GoToPage(index);
         }
 
-        public void SearchBy(CriteriaViewModel criteria)
+        public void SearchBy(ICriteriaViewModel criteria)
         {
             ViewModel.SearchResults = _acumulatorSearcher
                 .QueryByCriteria(Acumulator.Entries, criteria);

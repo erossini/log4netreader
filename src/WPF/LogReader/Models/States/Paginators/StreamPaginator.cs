@@ -1,8 +1,10 @@
+using LogReader.Models.ViewModels;
+
 namespace LogReader.Models.States.Paginators
 {
     public class StreamPaginator : Paginator
     {
-        public StreamPaginator(IViewModel viewModel, Acumulator acumulator) : base(viewModel, acumulator)
+        public StreamPaginator(IShellViewModel viewModel, Acumulator acumulator) : base(viewModel, acumulator)
         {
         }
 

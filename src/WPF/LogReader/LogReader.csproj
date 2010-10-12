@@ -131,6 +131,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\GoToPageCommand.cs" />
+    <Compile Include="Commands\ListenWireCommand.cs" />
+    <Compile Include="Commands\NextPageCommand.cs" />
+    <Compile Include="Commands\OpenFileCommand.cs" />
+    <Compile Include="Commands\PreviousPageCommand.cs" />
+    <Compile Include="Commands\SearchCommand.cs" />
     <Compile Include="Infrastructure\Bootrapper.cs" />
     <Compile Include="Infrastructure\Readers\InstantReader.cs" />
     <Compile Include="Infrastructure\Readers\LogReader.cs" />
@@ -147,8 +153,9 @@
     <Compile Include="Models\States\Paginators\StreamPaginator.cs" />
     <Compile Include="Models\States\Paginators\WaitPaginator.cs" />
     <Compile Include="Models\States\State.cs" />
-    <Compile Include="Models\IViewModel.cs" />
+    <Compile Include="Models\ViewModels\IShellViewModel.cs" />
     <Compile Include="ViewModels\CriteriaViewModel.cs" />
+    <Compile Include="Models\ViewModels\ICriteriaViewModel.cs" />
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
